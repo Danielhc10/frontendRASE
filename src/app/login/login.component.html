@@ -1,0 +1,48 @@
+<div class="container-fluid mt-5"
+    fxLayout
+    fxLayout.xs="column"
+    fxLayoutAling="center"
+    fxLayoutGap="0"
+    fxLayoutGap.xs="0">
+    
+    <div class="login-card mat-elevation-z8" fxFlex="35%">
+        <main class="login-content"
+            fxLayout="column"
+            fxLayoutAling="center center">
+            <span class="login-header mb-5 mt-3">Login</span>
+            <form [formGroup]="form" class="login-form aling-items-center" fxLayout="column"(ngSubmit)="login($event)">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Correo</mat-label>
+                    <input matInput placeholder="example@gmail.com" type="email" formControlName='email'>
+                    <mat-icon matPrefix>mail_outline</mat-icon>
+                    <mat-error *ngIf="form.controls.email.hasError('email') && !form.controls.email.hasError('required')">
+                        Por favor ingresa un correo valido
+                    </mat-error>
+                    <mat-error *ngIf="form.controls.email.hasError('required')">
+                        Por favor ingresa un correo
+                    </mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput placeholder="Contraseña" type="password" formControlName='password'>
+                    <mat-icon matPrefix>lock_outline</mat-icon>
+                    <mat-error *ngIf="form.controls.email.hasError('required')">
+                        Por favor ingresa un correo
+                    </mat-error>
+                </mat-form-field>
+                <button mat-raised-button color="warn" type="submmit" class="login-button mt-3">Entrar</button>
+            </form>
+        </main>
+    </div>
+    <div class="login-card mat-elevation-z8"
+            fxFlex="45%"
+            fxLayout="column"
+            fxLayoutAling="end start"
+            [ngStyle]="unsplashClass()">
+        <div class="login-aside-overlay"></div>
+        <h1 class="login-welcome-text">¡Bienvenido!</h1>
+        <hr class="login-aside-hr">
+    </div>
+
+
+</div>
