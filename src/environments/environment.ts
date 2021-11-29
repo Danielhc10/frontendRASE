@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  httpUrl:"https://localhost:44306/api"
+  httpUrl:"https://localhost:44306",
+  httpApi: "api/T_USUARIOS"
 };
 /**
  * export const environment = {

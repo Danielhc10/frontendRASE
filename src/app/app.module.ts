@@ -4,9 +4,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // MATERIAL ANGULAR
-import {MatIconModule} from '@angular/material/icon';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatSliderModule} from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,10 +15,13 @@ import { MedicamentosComponent } from './medicamentos/medicamentos.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './compartidos/footer/footer.component';
 import { HeaderComponent } from './compartidos/header/header.component';
-import { ScrollToTopComponent } from './compartidos/scroll-to-top/scroll-to-top.component';
+//import { ScrollToTopComponent } from './compartidos/scroll-to-top/scroll-to-top.component';
 import { HomeComponent } from './home/home.component';
 import { AgregarMedicoComponent } from './medicos/agregar-medico/agregar-medico.component';
 import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedentes/agregar-antecedentes.component';
+import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -36,7 +36,7 @@ import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedente
     LoginComponent,
     FooterComponent,
     HeaderComponent,
-    ScrollToTopComponent,
+    //ScrollToTopComponent,
     HomeComponent,
     AgregarMedicoComponent,
     AgregarAntecedentesComponent,
@@ -47,10 +47,10 @@ import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedente
     FlexLayoutModule,
     FormsModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatSliderModule    
+    MaterialModule,
+    ReactiveFormsModule, 
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

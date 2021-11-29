@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import Swal from 'sweetalert';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,10 +13,16 @@ export class LoginComponent implements OnInit {
   styleImage='doctor';
 
   form:FormGroup;
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private authService: AuthService) { }
 
   ngOnInit(): void {
     this.buildForm();
+    const userData ={
+      email:'cruzxochitl68@gmail.com',
+      password: 'Taba123'
+    };
+    this.authService.login(userData).subscribe((res)=>console.log('entrando'))
   }
 
   private buildForm(): any{
@@ -24,10 +32,18 @@ export class LoginComponent implements OnInit {
     })
   };
 
+  advertencia(){
+    Swal({
+      title: "Advertencia",
+      text: "Si olvidaste tu contraseña comunicate con soporte para recuperarla o cambiarla",
+      icon: "warning"
+
+    })
+  }
   unsplashClass(): any{
     return {
       'min-height':'100%',
-      background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage} no-repeat center center)`,
+      background: `url("https://source.unsplash.com/random/1200x900?"${this.styleImage}) no-repeat center center`,
       'background-size':'cover',
       position:'relative'
     }
