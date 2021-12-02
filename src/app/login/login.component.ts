@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert';
 import { AuthService } from '../services/auth.service';
+import { Roles } from "../models/users.interface";
 
 @Component({
   selector: 'app-login',
@@ -18,8 +19,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-    const userData ={
-      email:'cruzxochitl68@gmail.com',
+      const userData ={
+      email:'CRUZXOCHITL68@GMAIL.COM',//cruzxochitl68@gmail.com
       password: 'Taba123'
     };
     this.authService.login(userData).subscribe((res)=>console.log('entrando'))
@@ -51,9 +52,14 @@ export class LoginComponent implements OnInit {
 
   login(event: Event):any {
     event.preventDefault();
+    const userData ={
+      email:'CRUZXOCHITL68@GMAIL.COM',//cruzxochitl68@gmail.com
+      password: 'Taba123'
+    };
     if (this.form.valid){
       const value = this.form.value;
-      console.log(`'%c'Doctor: ${value.email} - Password: ${value.password}`, 'background: #222; color: #bada55');
+      this.authService.login(userData).subscribe((res)=>console.log('entrando'))
+      //console.log(`'%c'Doctor: ${value.email} - Password: ${value.password} - Role: `, 'background: #222; color: #bada55');
     }
   }
 }

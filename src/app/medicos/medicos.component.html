@@ -1,1 +1,38 @@
-<p>medicos works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1>LISTADO DE MÉDICOS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <table class="table">
+                    <thead>
+                        <tr>
+                          <th scope="col">Nombre</th>
+                          <th scope="col">Especialidad</th>
+                          <th scope="col">Num. de teléfono</th>
+                          <th scope="col">Acciones</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr *ngFor="let medicos of listMedicos">
+                            <td>{{medicos.nombre}}</td>
+                            <td>{{medicos.especialidad}}</td>
+                            <td>{{medicos.telefono}}</td>
+                            <td>
+                                <mat-icon class="far text-info">edit</mat-icon>
+                                <mat-icon class="far text-danger">delete</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

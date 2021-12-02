@@ -22,6 +22,7 @@ import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedente
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { MedicosListComponent } from './medicos/medicos-list/medicos-list.component';
 
 
 
@@ -40,6 +41,7 @@ import { environment } from 'src/environments/environment';
     HomeComponent,
     AgregarMedicoComponent,
     AgregarAntecedentesComponent,
+    MedicosListComponent,
   ],
   imports: [
     BrowserModule,

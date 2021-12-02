@@ -1,5 +1,5 @@
 'use strict'
-export type Roles = 'MEDICO' | 'ADMI';
+export type Roles = 'MEDICO' | 'ADMIN';
 
 export interface IUser{
     email: string,
