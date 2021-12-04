@@ -12,5 +12,4 @@ export interface Medicos{
     cedula: string,
     num_recetas: number,
     activo: boolean
-
 }

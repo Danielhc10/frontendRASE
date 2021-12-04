@@ -11,7 +11,7 @@
     <div class="row mt-4">
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
-                <form>
+                <form> 
                     <p></p>
                     <mat-form-field appearance="fill">
                         <mat-label>Nombre(s)</mat-label>
@@ -25,6 +25,24 @@
                         <mat-label>Apellido materno</mat-label>
                         <input matInput placeholder="Apellido materno">
                     </mat-form-field>
+                    <form [formGroup]="curp">
+                        <mat-form-field appearance="fill">
+                            <mat-label>CURP</mat-label>
+                            <input matInput maxlength="18" 
+                                            #input [value]="input.value.toUpperCase()" 
+                                            placeholder="Apellido materno"
+                                            formControlName="medicurp">
+                        </mat-form-field>
+                    </form>
+                    <form [formGroup]="email">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Correo</mat-label>
+                            <input matInput placeholder="example@gmail.com" type="email" formControlName="correo">
+                            <mat-error *ngIf="email.controls.correo.hasError('required') && !email.controls.correo.hasError('required')">
+                                Por favor ingresa un correo valido
+                            </mat-error>
+                        </mat-form-field>
+                    </form>
                     
                 </form>
             </div>
