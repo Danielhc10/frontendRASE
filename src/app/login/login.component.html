@@ -20,7 +20,7 @@
           </mat-error>
           <mat-error *ngIf="form.controls.email.hasError('required')">
             El correo es <strong>requerido</strong>
-          </mat-error>
+          </mat-error> 
         </mat-form-field>
         <mat-form-field appearance="outline" class="full-width">
           <mat-label>Contraseña</mat-label>
@@ -33,7 +33,7 @@
         <button mat-raised-button color="warn" type="submit" >Ingresar</button>
       </form>
       <div class="mt-3">
-        <a class="forgot-link" (click)="advertencia()">forgot password?</a>
+        <a class="forgot-link" (click)="advertencia()">¿Olvidaste tu contraseña?</a>
       </div>
     </main>
 

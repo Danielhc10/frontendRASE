@@ -10,7 +10,7 @@ import { SucursalesComponent } from './sucursales/sucursales.component';
 
 const routes: Routes = [
   {path: "medicos", component: MedicosComponent,
-    //children:[{path: "agregarmedico", component: AgregarMedicoComponent}]
+    children:[{path: "agregarmedico", component: AgregarMedicoComponent}]
   },
   {path: "agregarmedico", component: AgregarMedicoComponent},
   {path: "login", component: LoginComponent},
