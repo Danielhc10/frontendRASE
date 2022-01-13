@@ -9,8 +9,11 @@ import { PacientesComponent } from './pacientes/pacientes.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 
 const routes: Routes = [
-  {path: "medicos", component: MedicosComponent,
-    children:[{path: "agregarmedico", component: AgregarMedicoComponent}]
+  {path: "medicos",
+    children:[
+      {path: "agregarmedico", component: AgregarMedicoComponent},
+      {path: "**", component: MedicosComponent},
+    ] 
   },
   {path: "agregarmedico", component: AgregarMedicoComponent},
   {path: "login", component: LoginComponent},
