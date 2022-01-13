@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert'
+import Swal from 'sweetalert';
 
 @Component({
   selector: 'app-medicos',
@@ -17,6 +17,7 @@ export class MedicosComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    noooo();
   }
   noooo(){
     Swal({
