@@ -17,5 +17,26 @@ export class MedicosComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  noooo(){
+    Swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: {
+        confirm: true,
+        cancel: true
+      },
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        Swal("Poof! Your imaginary file has been deleted!", {
+          icon: "success",
+        });
+      } else {
+        Swal("Your imaginary file is safe!");
+      }
+    });
+  }
 
 }

@@ -1,3 +1,7 @@
 'use strict'
 
-export interface Especialidad{ }
+export interface Especialidad{ 
+
+    nombre: string
+
+}

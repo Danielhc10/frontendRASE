@@ -23,8 +23,10 @@ export class AgregarMedicoComponent implements OnInit {
       correo: new FormControl('',[Validators.required, Validators.email]),
       nombre: new FormControl('',[Validators.required]),
       apePaterno: new FormControl('',[Validators.required]),
-      apeMaterno: new FormControl('',[Validators.required])
-      
+      apeMaterno: new FormControl('',[Validators.required]),
+      cedula: new FormControl('',[Validators.required]),
+      recetas: new FormControl('', [Validators.required]),
+      telefono: new FormControl('', [Validators.required, Validators.minLength(10)]),
     })
 
     /**
