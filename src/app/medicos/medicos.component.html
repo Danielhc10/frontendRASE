@@ -26,7 +26,7 @@
                             <td>{{medicos.especialidad}}</td>
                             <td>{{medicos.telefono}}</td>
                             <td>
-                                <mat-icon class="far text-info">edit</mat-icon>
+                                <a [routerLink]="['/medicos/agregarmedico']"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="noooo()">delete</mat-icon>
                             </td>
                         </tr>
