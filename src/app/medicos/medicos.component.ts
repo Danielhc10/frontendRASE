@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert'
 
 @Component({
   selector: 'app-medicos',
@@ -19,8 +20,8 @@ export class MedicosComponent implements OnInit {
   }
   noooo(){
     Swal({
-      title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this imaginary file!",
+      title: "¿Estás seguro de eliminar al médico?",
+      text: "Una vez borrado, podrás activarlo nuevamento en el apartado de agregar médico",
       icon: "warning",
       buttons: {
         confirm: true,
