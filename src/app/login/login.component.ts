@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import Swal from 'sweetalert';
+import Swal from 'sweetalert2';
 import { AuthService } from '../services/auth.service';
 import { Roles } from "../models/users.interface";
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
   };
 
   advertencia(){
-    Swal({
+    Swal.fire({
       title: "Advertencia",
       text: "Si olvidaste tu contraseña comunicate con soporte para recuperarla o cambiarla",
       icon: "warning"

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-medicos',
@@ -16,27 +16,23 @@ export class MedicosComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    noooo();
-  }
+  ngOnInit(): void {  }
   noooo(){
-    Swal({
+    Swal.fire({
       title: "¿Estás seguro de eliminar al médico?",
       text: "Una vez borrado, podrás activarlo nuevamento en el apartado de agregar médico",
       icon: "warning",
-      buttons: {
-        confirm: true,
-        cancel: true
-      },
-      dangerMode: true,
+      //buttons: {
+        //confirm: true,
+       // cancel: true
+      //},
+      //dangerMode: true,
     })
     .then((willDelete) => {
       if (willDelete) {
-        Swal("Poof! Your imaginary file has been deleted!", {
-          icon: "success",
-        });
+        Swal.fire("Poof! Your imaginary file has been deleted!");
       } else {
-        Swal("Your imaginary file is safe!");
+        Swal.fire("Your imaginary file is safe!");
       }
     });
   }
