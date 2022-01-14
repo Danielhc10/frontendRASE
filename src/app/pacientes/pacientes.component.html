@@ -15,11 +15,27 @@
                 <form [formGroup]="newPaciente" appearance="fill">
                     <p></p>
                     <mat-form-field appearance="fill">
-                        <mat-label>Nombre(s)*</mat-label>
+                        <mat-label>Nombre(s)</mat-label>
                         <input matInput placeholder="Nombre(s)"
                                 formControlName="nombre">
                         <mat-error *ngIf="newPaciente.controls.nombre.hasError('required')">
                             El nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Apellido paterno</mat-label>
+                        <input matInput placeholder="Apellido paterno"
+                                formControlName="apePaterno">
+                        <mat-error *ngIf="newPaciente.controls.apePaterno.hasError('required')">
+                            El apellido paterno es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Apellido materno</mat-label>
+                        <input matInput placeholder="Apellido materno"
+                                formControlName="apeMaterno">
+                        <mat-error *ngIf="newPaciente.controls.apeMaterno.hasError('required')">
+                            El apellido materno es <strong>requerido</strong>
                         </mat-error>
                     </mat-form-field>
                 </form>

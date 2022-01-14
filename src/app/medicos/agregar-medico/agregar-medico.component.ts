@@ -12,6 +12,9 @@ export class AgregarMedicoComponent implements OnInit {
    * curp: FormGroup;
   email: FormGroup;
    */
+  toppings = new FormControl();
+
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newMedic: FormGroup;
 
   constructor() { }

@@ -89,8 +89,21 @@
                             El numero de teléfono es <strong>requerido</strong>
                         </mat-error> 
                     </mat-form-field>
-                    <div class="example-button-row">
-                        <button mat-stroked-button color="primary" appearance="fill">Accent</button>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Toppings</mat-label>
+                        <mat-select [formControl]="toppings" multiple>
+                          <mat-select-trigger>
+                            {{toppings.value ? toppings.value[0] : ''}}
+                            <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                              (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+                            </span>
+                          </mat-select-trigger>
+                          <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                      
+                    <div class="example-button-row" aling="center">
+                        <button mat-stroked-button color="primary"  appearance="fill">Aceptar</button>
                     </div>
                 </form>
             </div>
