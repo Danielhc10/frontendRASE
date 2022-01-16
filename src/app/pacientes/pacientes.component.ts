@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+
 @Component({
   selector: 'app-pacientes',
   templateUrl: './pacientes.component.html',
@@ -8,26 +9,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PacientesComponent implements OnInit {
 
+  
   newPaciente: FormGroup;
 
   constructor() { }
-
-  /**
-   *nombre: string,
-    ape_pat: string,
-    ape_mat: string,
-    fech_nac: Date,
-    sexo: string,
-    curp: string,
-    telefono: string,
-    correo: string,
-    tipo_sangre: string,
-    estado_civil: string,
-    ocupacion: string, 
-    notas: string,
-    archivo_paciente: string,
-    activo: boolean
-   */
+  
   ngOnInit(): void {
     this.newPaciente = new FormGroup({
       nombre: new FormControl('',[Validators.required]),

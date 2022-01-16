@@ -38,6 +38,71 @@
                             El apellido materno es <strong>requerido</strong>
                         </mat-error>
                     </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha de nacimiento</mat-label>
+                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/AAAA" formControlName="fechaNac">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Sexo</mat-label>
+                        <mat-select disableRipple formControlName="sexo">
+                          <mat-option value="1">Hombre</mat-option>
+                          <mat-option value="2">Mujer</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>CURP</mat-label>
+                        <input matInput maxlength="18" 
+                                #input [value]="input.value.toUpperCase()" 
+                                placeholder="CURP"
+                                formControlName="curp">
+                        <mat-error *ngIf="newPaciente.controls.curp.hasError('required')">
+                           El <strong>CURP</strong> es <strong>requerido</strong>
+                        </mat-error> 
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Correo</mat-label>
+                        <input matInput placeholder="example@gmail.com" type="email" formControlName="correo">
+                        <mat-error *ngIf="newPaciente.controls.correo.hasError('correo') && !newPaciente.controls.correo.hasError('required')">
+                            Por favor ingresa un correo valido
+                        </mat-error>
+                        <mat-error *ngIf="newPaciente.controls.correo.hasError('required')">
+                            El correo es <strong>requerido</strong>
+                        </mat-error> 
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Tipo de sangre</mat-label>
+                        <mat-select disableRipple formControlName="tipoSangre">
+                          <mat-option value="1">A+</mat-option>
+                          <mat-option value="2">A-</mat-option>
+                          <mat-option value="3">O+</mat-option>
+                          <mat-option value="4">O-</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Estado civil</mat-label>
+                        <mat-select disableRipple formControlName="estadoCivil">
+                          <mat-option value="1">Casado(a)</mat-option>
+                          <mat-option value="2">Soltero(a)</mat-option>
+                          <mat-option value="3">Divorsiado(a)</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Ocupación</mat-label>
+                        <input matInput placeholder="Obrero"
+                                formControlName="ocupacion">
+                        <mat-error *ngIf="newPaciente.controls.ocupacion.hasError('required')">
+                            El nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Notas</mat-label>
+                        <input matInput #notas maxlength="100" 
+                                placeholder="Notas relevantes"
+                                formControlName="notas">
+                        <mat-hint align="end">{{notas.value.length}} / 100</mat-hint>
+                    </mat-form-field>
                 </form>
             </div>
         </div>
