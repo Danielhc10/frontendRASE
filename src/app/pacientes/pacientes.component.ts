@@ -9,7 +9,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class PacientesComponent implements OnInit {
 
+  toppings = new FormControl();
   
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newPaciente: FormGroup;
 
   constructor() { }
