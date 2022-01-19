@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Swal from 'sweetalert2';
-
+import { SharedService } from '../shared.service';
 @Component({
   selector: 'app-medicos',
   templateUrl: './medicos.component.html',
@@ -8,15 +8,25 @@ import Swal from 'sweetalert2';
 })
 export class MedicosComponent implements OnInit {
 
-  listMedicos:any[]=[
+  constructor(private service:SharedService) { }
+  /*listMedicos:any[]=[
     {nombre: "Xochitl Cruz", especialidad:"Neonatologa", telefono:"7839876543"},
     {nombre: "Daniel Hernandez", especialidad:"Otorrinolaringolo", telefono:"7822596985"},
     {nombre: "Juan Zumaya", especialidad:"Oftalmologo", telefono:"7821234567"},
-  ]
+  ]*/
 
-  constructor() { }
+  listMedicos:any=[];
 
-  ngOnInit(): void {  }
+  ngOnInit(): void {
+    this.refreshDepList();
+   }
+   refreshDepList(){
+    this.service.getMedicosList().subscribe(data=>{
+      this.listMedicos=data;
+    });
+  }
+
+
   noooo(){
     Swal.fire({
       title: "¿Estás seguro de eliminar al médico?",

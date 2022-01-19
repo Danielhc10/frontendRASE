@@ -23,7 +23,7 @@ import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MedicosListComponent } from './medicos/medicos-list/medicos-list.component';
-
+import { SharedService } from './shared.service';
 
 
 @NgModule({
@@ -50,11 +50,11 @@ import { MedicosListComponent } from './medicos/medicos-list/medicos-list.compon
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     HttpClientModule,
-    
+
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
