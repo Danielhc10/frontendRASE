@@ -21,7 +21,10 @@
                           <th scope="col">Nombre</th>
                           <th scope="col">Apellido Paterno</th>
                           <th scope="col">Apellido Materno</th>
-                          <th scope="col">Num. de teléfono</th>
+                          <th scope="col">Especialidad</th>
+                          <th scope="col">Recetas Disponibles</th>
+                          <th scope="col">Cedula Profesional</th>
+                          <th scope="col">Teléfono</th>
                           <th scope="col">Acciones</th>
                         </tr>
                       </thead>
@@ -31,7 +34,6 @@
                             <td>{{medicos.NOM_DOC}}</td>
                             <td>{{medicos.AP_PAT_DOC}}</td>
                             <td>{{medicos.AP_MAT_DOC}}</td>
-                            <td>{{medicos.TEL_DOC}}</td>
                             <td>
                                 <a (click)="editClick(medicos)" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="noooo()">delete</mat-icon>
