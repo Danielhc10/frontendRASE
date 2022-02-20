@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
+import { IMedicos } from '../../models/medicos'
 
 @Component({
   selector: 'app-agregar-medico',
@@ -16,30 +19,34 @@ export class AgregarMedicoComponent implements OnInit {
 
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newMedic: FormGroup;
-
-  constructor() { }
+ 
+  constructor(private service: SharedService, private router: Router) { }
 
   ngOnInit(): void {
+    
    
     this.newMedic = new FormGroup({
-      medicurp: new FormControl('',[Validators.required, Validators.minLength(18)]),
-      correo: new FormControl('',[Validators.required, Validators.email]),
-      nombre: new FormControl('',[Validators.required]),
-      apePaterno: new FormControl('',[Validators.required]),
-      apeMaterno: new FormControl('',[Validators.required]),
-      cedula: new FormControl('',[Validators.required]),
-      recetas: new FormControl('', [Validators.required, Validators.maxLength(3)]),
-      telefono: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      nomDoc: new FormControl('',[Validators.required]),
+      apPatDoc: new FormControl('',[Validators.required]),
+      apMatDoc: new FormControl('',[Validators.required]),
+      curpDoc: new FormControl('',[Validators.required, Validators.minLength(18)]),
+      recDis: new FormControl('', [Validators.required, Validators.maxLength(3)]),
+      correoDoc: new FormControl('',[Validators.required, Validators.email]),
+      idEsp: new FormControl('', [Validators.required]),
+      telDoc: new FormControl('', [Validators.required, Validators.minLength(10)]),
+      cedP: new FormControl('',[Validators.required]),
     })
-
-    /**
-    *  this.curp = new FormGroup({
-      medicurp: new FormControl ('',[Validators.required, Validators.minLength(18)])
-    }),
-    this.email = new FormGroup({
-      correo: new FormControl('', [Validators.required, Validators.email])
-    })
-    */
+  }
+  addMedico(){
+    let medico: IMedicos = Object.assign({}, this.newMedic.value);
+    console.table(medico);
+    
+    this.service.createMedico(medico)
+      .subscribe(medico => this.onSaveSuccess(),
+                  error => console.log(error))
+  }
+  onSaveSuccess(){
+    this.router.navigate(['/medicos'])
   }
   changeUpperCase(textToUpper: string) {
     //console.log("textToUpper: " + textToUpper);

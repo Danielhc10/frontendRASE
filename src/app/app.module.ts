@@ -24,6 +24,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { MedicosListComponent } from './medicos/medicos-list/medicos-list.component';
 import { SharedService } from './shared.service';
+import { EditMedicoComponent } from './medicos/edit-medico/edit-medico.component';
+import { ListPacienteComponent } from './pacientes/list-paciente/list-paciente.component';
+import { AddSucursalComponent } from './sucursales/add-sucursal/add-sucursal.component';
 
 
 @NgModule({
@@ -42,6 +45,9 @@ import { SharedService } from './shared.service';
     AgregarMedicoComponent,
     AgregarAntecedentesComponent,
     MedicosListComponent,
+    EditMedicoComponent,
+    ListPacienteComponent,
+    AddSucursalComponent,
   ],
   imports: [
     BrowserModule,

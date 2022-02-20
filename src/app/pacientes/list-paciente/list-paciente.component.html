@@ -4,10 +4,10 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h1>LISTADO DE MÉDICOS</h1>
+                    <h1>LISTADO DE PACIENTES ACTIVOS</h1>
                 </div>
                 <div fxLayout="row" fxLayoutAlign="end center">
-                    <button (click)="addMedico()"mat-raised-button color="primary">Agregar médico</button>
+                    <button (click)="addPaciente()"mat-raised-button color="primary">Agregar paciente</button>
                 </div>
             </div>
         </div>
@@ -18,20 +18,26 @@
                 <table class="table">
                     <thead>
                         <tr>
+                          <th scope="col">ID</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Apellido Paterno</th>
                           <th scope="col">Apellido Materno</th>
+                          <th scope="col">Edad</th>
                           <th scope="col">Num. de teléfono</th>
+                          <th scope="col">Notas</th>
                           <th scope="col">Acciones</th>
                         </tr>
                       </thead>
                     <tbody>
-                        <tr *ngFor="let medicos of listMedicos">
+                        <tr *ngFor="let pacientes of listPacientes">
                             
-                            <td>{{medicos.NOM_DOC}}</td>
-                            <td>{{medicos.AP_PAT_DOC}}</td>
-                            <td>{{medicos.AP_MAT_DOC}}</td>
-                            <td>{{medicos.TEL_DOC}}</td>
+                            <td>{{pacientes.ID_PAC}}</td>
+                            <td>{{pacientes.NOM_PAC}}</td>
+                            <td>{{pacientes.AP_PAT_PAC}}</td>
+                            <td>{{pacientes.AP_MAT_PAC}}</td>
+                            <td>{{pacientes.EDAD}}</td>
+                            <td>{{pacientes.TEL_PAC}}</td>
+                            <td>{{pacientes.NOTAS_PAC}}</td>
                             <td>
                                 <a (click)="editClick(medicos)" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="noooo()">delete</mat-icon>

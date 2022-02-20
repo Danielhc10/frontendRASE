@@ -5,25 +5,28 @@
                 <div class="card-body text-center">
                     <h1>Visita cualquiera de nuestras sucursales</h1>
                 </div>
+                <div fxLayout="row" fxLayoutAlign="end center">
+                    <button (click)="addSucursal()"mat-raised-button color="primary">Agregar sucursal</button>
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
-                <table class="table">
+                <table class="table" style="text-align:center;">
                     <thead> 
                         <tr>
+                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Dirección</th>
-                            <th scope="col">Ubicación</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>nombre1</td>
-                            <td>direccion1</td>
-                            <a mat-flat-button href="https://goo.gl/maps/XeEKYnZAK21Pg1YF7"><mat-icon>location_on</mat-icon></a>
+                        <tr *ngFor="let sucursal of listSucusal">
+                            <td>{{sucursal.ID_SUC}}</td>
+                            <td>{{sucursal.NOM_SUC}}</td>
+                            <td>{{sucursal.DIR_SUC}}</td>
                         </tr>
                     </tbody>
                 </table>
