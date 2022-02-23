@@ -42,23 +42,14 @@ export class ListPacienteComponent implements OnInit {
       }
     })
   }
-  noooo(){
-    Swal.fire({
-      title: "¿Estás seguro de eliminar al médico?",
-      text: "Una vez borrado, podrás activarlo nuevamento en el apartado de agregar médico",
-      icon: "warning",
-      //buttons: {
-        //confirm: true,
-       // cancel: true
-      //},
-      //dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        Swal.fire("Poof! Your imaginary file has been deleted!");
-      } else {
-        Swal.fire("Your imaginary file is safe!");
-      }
-    })
+  clickDelete(ID_PAC: number){
+    console.log('Paciente con ID: '+ID_PAC+' fue eliminado correctamente');
+    
+    this.servicio.deletePaciente(ID_PAC).subscribe(data=>{
+      this.refreshPacienteList();
+    },error => {
+      console.log(error);
+      
+    }) 
   }
 }

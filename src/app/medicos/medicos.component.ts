@@ -12,24 +12,23 @@ import { SharedService } from '../shared.service';
 export class MedicosComponent implements OnInit {
 
   constructor(private service:SharedService, private router: Router) { }
-  /*listMedicos:any[]=[
-    {nombre: "Xochitl Cruz", especialidad:"Neonatologa", telefono:"7839876543"},
-    {nombre: "Daniel Hernandez", especialidad:"Otorrinolaringolo", telefono:"7822596985"},
-    {nombre: "Juan Zumaya", especialidad:"Oftalmologo", telefono:"7821234567"},
-  ]*/
 
   listMedicos:any=[];
+  especialidadList:any=[];
   ModalTitle:string;
   ActivateAddEditDepComp: boolean=false;
   dep:any;
 
   ngOnInit(): void {
-    this.refreshDepList();
+    this.refreshDocList();
    }
-   refreshDepList(){
+   refreshDocList(){
     this.service.getMedicosList().subscribe(data=>{
       this.listMedicos=data;
     });
+/*     this.service.getEspecialidad().subscribe(data=>{
+      this.especialidadList=data;
+    }) */
   }
   addMedico(){
     Swal.fire({
@@ -52,27 +51,15 @@ export class MedicosComponent implements OnInit {
     })
     
   }
-  editClick(medico: IMedicos){
-    this.router.navigate(['/medicos/editarmedico'])
-  }
-  noooo(){
-    Swal.fire({
-      title: "¿Estás seguro de eliminar al médico?",
-      text: "Una vez borrado, podrás activarlo nuevamento en el apartado de agregar médico",
-      icon: "warning",
-      //buttons: {
-        //confirm: true,
-       // cancel: true
-      //},
-      //dangerMode: true,
+
+  clickDelete(ID_DOC: number){
+    console.log(ID_DOC);
+    this.service.deleteMedico(ID_DOC).subscribe(data=>{
+      this.refreshDocList();
+    }, error =>{
+      console.log(error); 
+      
     })
-    .then((willDelete) => {
-      if (willDelete) {
-        Swal.fire("Poof! Your imaginary file has been deleted!");
-      } else {
-        Swal.fire("Your imaginary file is safe!");
-      }
-    });
   }
 
 }

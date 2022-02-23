@@ -1,0 +1,62 @@
+<div class="container mt-5">
+    <div class="row">
+        
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1>LISTADO DE MEDICAMENTOS</h1>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
+                        data-bs-target="#exampleModal" (click)="addMedicamento()"
+                        data-keybord="false" data-backdrop="static">
+                        Agregar Medicamento
+                    </button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeClick()"></button>
+                            </div>
+                            <div class="modal-body">
+                                <app-add-medicamento [dep]="dep" *ngIf="ActivaNewMedicamento"></app-add-medicamento>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <table class="table" style="text-align:center;">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Medicamento</th>
+                            <th scope="col">Descripción</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr *ngFor="let medicamentos of listMedicamentos">
+                            <td>{{medicamentos.ID_MED}}</td>
+                            <td>{{medicamentos.NOM_MED}}</td>
+                            <td>{{medicamentos.DESC_MED}}</td>
+                            <td>
+                                <a (click)="editClick(medicamentos)" data-backdrop="static" data-keybord="false">
+                                    <mat-icon class="far text-info">edit</mat-icon>
+                                </a>
+                                <mat-icon class="far text-danger" (click)="clickDelete(medicamentos.ID_MED)">delete</mat-icon>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

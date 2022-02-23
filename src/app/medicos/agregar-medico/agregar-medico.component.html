@@ -3,7 +3,7 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h1>AGREGUEMOS A UN NUEVO MÉDICO</h1>
+                    <h1>{{ accion }} MÉDICO</h1>
                 </div>
             </div>
         </div>
@@ -98,7 +98,7 @@
                     </mat-form-field>
                       
                     <div class="example-button-row" aling="center"> 
-                        <button (click)="addMedico()" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                        <button (click)="addMedico()" [disabled]="!newMedic.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
                     </div>
                 </form>
             </div>

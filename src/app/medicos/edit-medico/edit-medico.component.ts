@@ -25,7 +25,7 @@ export class EditMedicoComponent implements OnInit {
   }
 
 
-  updateMedico(){
+/*   updateMedico(){
     var val= {
       Telefonomed: this.Telefonomed,
       Recetas: this.Recetas
@@ -33,5 +33,5 @@ export class EditMedicoComponent implements OnInit {
     this.service.updateMedico(val).subscribe(res =>{
       alert(res.toString());
     })
-  }
+  } */
 }

@@ -18,7 +18,6 @@
                 <table class="table">
                     <thead>
                         <tr>
-                          <th scope="col">ID</th>
                           <th scope="col">Nombre</th>
                           <th scope="col">Apellido Paterno</th>
                           <th scope="col">Apellido Materno</th>
@@ -30,8 +29,6 @@
                       </thead>
                     <tbody>
                         <tr *ngFor="let pacientes of listPacientes">
-                            
-                            <td>{{pacientes.ID_PAC}}</td>
                             <td>{{pacientes.NOM_PAC}}</td>
                             <td>{{pacientes.AP_PAT_PAC}}</td>
                             <td>{{pacientes.AP_MAT_PAC}}</td>
@@ -40,7 +37,7 @@
                             <td>{{pacientes.NOTAS_PAC}}</td>
                             <td>
                                 <a (click)="editClick(medicos)" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
-                                <mat-icon class="far text-danger" (click)="noooo()">delete</mat-icon>
+                                <mat-icon class="far text-danger" (click)="clickDelete(pacientes.ID_PAC)">delete</mat-icon>
                             </td>
                         </tr>
                     </tbody>

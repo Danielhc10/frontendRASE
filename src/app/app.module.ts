@@ -27,6 +27,9 @@ import { SharedService } from './shared.service';
 import { EditMedicoComponent } from './medicos/edit-medico/edit-medico.component';
 import { ListPacienteComponent } from './pacientes/list-paciente/list-paciente.component';
 import { AddSucursalComponent } from './sucursales/add-sucursal/add-sucursal.component';
+import { EditMedicamentoComponent } from './medicamentos/edit-medicamento/edit-medicamento.component';
+import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medicamento.component';
+import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
 
 
 @NgModule({
@@ -48,6 +51,9 @@ import { AddSucursalComponent } from './sucursales/add-sucursal/add-sucursal.com
     EditMedicoComponent,
     ListPacienteComponent,
     AddSucursalComponent,
+    EditMedicamentoComponent,
+    AddMedicamentoComponent,
+    ListMedicinaComponent,
   ],
   imports: [
     BrowserModule,

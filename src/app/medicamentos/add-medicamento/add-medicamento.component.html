@@ -1,0 +1,40 @@
+<div class="contariner-mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h1>AGUREGAR NUEVO MEDICAMENTO</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <form [formGroup]="newMedicina" appearance="fill">
+                    <p></p>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Nombre de medicamento</mat-label>
+                        <input matInput placeholder="Paracetamol"
+                                formControlName="nomMed">
+                        <mat-error *ngIf="newMedicina.controls.nomMed.hasError('required')">
+                            El nombre es <strong>requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Descripción</mat-label>
+                        <input matInput placeholder="Caja de 10 pastillas..."
+                                formControlName="descMed">
+                        <mat-error *ngIf="newMedicina.controls.descMed.hasError('required')">
+                            La descripcion es <strong>requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    
+                    <div class="example-button-row" aling="center"> 
+                        <button (click)="addMedicamento()" [disabled]="newMedicina.invalid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

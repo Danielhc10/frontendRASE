@@ -1,12 +1,12 @@
-import  { Especialidad }  from "./especialidad.interface"
+import { IEspecialidad } from "./especialidad/especialidad";
 export class IMedicos {
-    //idDoc: number;
+    idDoc: number;
     nomDoc: string;
     apPatDoc: string;
     apMatDoc: string;
     curpDoc: string;
     recDis: number;
-    idEsp: Especialidad;
+    idEsp: IEspecialidad;
     correoDoc: string;
     telDoc: string;
     cedP: string

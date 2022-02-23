@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 import { IMedicos } from '../../models/medicos'
 
@@ -15,17 +15,22 @@ export class AgregarMedicoComponent implements OnInit {
    * curp: FormGroup;
   email: FormGroup;
    */
+  accion ="AGREGAR"
   toppings = new FormControl();
 
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newMedic: FormGroup;
  
-  constructor(private service: SharedService, private router: Router) { }
+  constructor(
+    private service: SharedService, 
+    private router: Router,
+    private aRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     
    
     this.newMedic = new FormGroup({
+      //idDoc: new FormControl(''),
       nomDoc: new FormControl('',[Validators.required]),
       apPatDoc: new FormControl('',[Validators.required]),
       apMatDoc: new FormControl('',[Validators.required]),
