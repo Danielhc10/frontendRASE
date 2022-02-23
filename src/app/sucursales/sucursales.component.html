@@ -17,14 +17,12 @@
                 <table class="table" style="text-align:center;">
                     <thead> 
                         <tr>
-                            <th scope="col">ID</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Dirección</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let sucursal of listSucusal">
-                            <td>{{sucursal.ID_SUC}}</td>
                             <td>{{sucursal.NOM_SUC}}</td>
                             <td>{{sucursal.DIR_SUC}}</td>
                         </tr>

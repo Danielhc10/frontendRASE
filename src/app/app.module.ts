@@ -30,6 +30,8 @@ import { AddSucursalComponent } from './sucursales/add-sucursal/add-sucursal.com
 import { EditMedicamentoComponent } from './medicamentos/edit-medicamento/edit-medicamento.component';
 import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medicamento.component';
 import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
+import { ConsultaComponent } from './consultas/consulta/consulta.component';
+import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
 
 
 @NgModule({
@@ -54,6 +56,8 @@ import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicin
     EditMedicamentoComponent,
     AddMedicamentoComponent,
     ListMedicinaComponent,
+    ConsultaComponent,
+    AddConsultaComponent,
   ],
   imports: [
     BrowserModule,

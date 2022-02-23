@@ -14,22 +14,22 @@ export class MedicosComponent implements OnInit {
   constructor(private service:SharedService, private router: Router) { }
 
   listMedicos:any=[];
-  especialidadList:any=[];
+  listEsp:any=[];
   ModalTitle:string;
   ActivateAddEditDepComp: boolean=false;
   dep:any;
 
   ngOnInit(): void {
-    this.refreshDocList();
+    this.refreshDocList()
    }
    refreshDocList(){
     this.service.getMedicosList().subscribe(data=>{
       this.listMedicos=data;
     });
-/*     this.service.getEspecialidad().subscribe(data=>{
-      this.especialidadList=data;
-    }) */
+    
+  
   }
+  
   addMedico(){
     Swal.fire({
       title: '¿Deseas agregar un nuevo médico?',

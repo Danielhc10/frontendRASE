@@ -1,4 +1,4 @@
 export class IEspecialidad {
-    id: number;
+    idEsp: number;
     nEsp: string;
 }

@@ -42,7 +42,7 @@
                         <mat-label>CURP</mat-label>
                         <input matInput maxlength="18" 
                                 #input [value]="input.value.toUpperCase()" 
-                                placeholder="Apellido materno"
+                                placeholder="18 Carácteres"
                                 formControlName="curpDoc">
                         <mat-error *ngIf="newMedic.controls.curpDoc.hasError('required')">
                            El <strong>CURP</strong> es <strong>requerido</strong>
@@ -90,11 +90,10 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Especialidad</mat-label>
-                        <input matInput placeholder="Medico general"
-                                formControlName="idEsp" type="number">
-                        <mat-error *ngIf="newMedic.controls.idEsp.hasError('required')">
-                           Especialidad <strong>obligatorio</strong>
-                        </mat-error>
+                        <mat-select disableRipple formControlName="idEsp">
+                          <mat-option value="2000">MEDICO FAMILIAR </mat-option>
+                          <mat-option value="2001">CARDIOLOGO</mat-option>
+                        </mat-select>
                     </mat-form-field>
                       
                     <div class="example-button-row" aling="center"> 

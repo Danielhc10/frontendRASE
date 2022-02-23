@@ -20,6 +20,8 @@ export class AgregarMedicoComponent implements OnInit {
 
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newMedic: FormGroup;
+
+  
  
   constructor(
     private service: SharedService, 
