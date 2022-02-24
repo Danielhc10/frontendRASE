@@ -23,11 +23,13 @@ readonly APIUrl="https://localhost:44306/api";
   updateMedico(medico: IMedicos):Observable<IMedicos>{
     return this.http.put<IMedicos>(this.APIUrl+'/Medicos', medico)
   }
-   
   deleteMedico(ID_DOC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
+  getMedico(ID_DOC: number):Observable<any>{
+    return this.http.get(this.APIUrl+'/Medicos/'+ID_DOC)
 
+  }
 
 
   //METODOS PARA PACIENTES

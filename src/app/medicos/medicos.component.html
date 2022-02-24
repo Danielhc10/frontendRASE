@@ -38,7 +38,7 @@
                             <td>{{medicos.CED_P}}</td>
                             <td>{{medicos.TEL_DOC}}</td>
                             <td>
-                                <a [routerLink]="['/agregarmedico/', medicos.ID_DOC]" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
+                                <a [routerLink]="['/medicos/agregarmedico/', medicos.ID_DOC]" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="clickDelete(medicos.ID_DOC)">delete</mat-icon>
                             </td>
                         </tr>

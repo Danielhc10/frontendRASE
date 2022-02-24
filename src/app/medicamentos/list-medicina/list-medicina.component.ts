@@ -36,7 +36,7 @@ export class ListMedicinaComponent implements OnInit {
     this.refreshMedList();
   }
   editClick(med){
-    this.dep=med;
+    this.dep=med; 
     this.modalTitle="Editar medicamento";
     this.ActivaNewMedicamento= true;
   }

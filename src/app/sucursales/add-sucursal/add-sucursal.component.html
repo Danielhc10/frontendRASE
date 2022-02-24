@@ -27,11 +27,11 @@
                         <input matInput placeholder="Apellido paterno"
                                 formControlName="dirSuc">
                         <mat-error *ngIf="newSucursal.controls.dirSuc.hasError('required')">
-                            El apellido paterno es <strong>requerido</strong>
+                            La direecion de la sucursal es <strong>requerida</strong>
                         </mat-error>
                     </mat-form-field>
                     <div class="example-button-row" aling="center"> 
-                        <button (click)="addSucursal()" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                        <button (click)="addSucursal()" mat-stroked-button color="primary" [disabled]="!newSucursal.valid"appearance="fill">Aceptar</button>
                     </div>
                 </form>
             </div>

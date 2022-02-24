@@ -13,6 +13,9 @@ export class SucursalesComponent implements OnInit {
   constructor(private servicio: SharedService, private router: Router) { }
 
   listSucusal: any=[];
+  modalTitle: string;
+  ActivaNewSucursal: boolean=false;
+  dep:any;
 
   ngOnInit(): void {
     this.refreshSucursalesList();
@@ -20,28 +23,22 @@ export class SucursalesComponent implements OnInit {
 
   refreshSucursalesList(){
     this.servicio.getSucursalesList().subscribe(data=>{
-      this.listSucusal=data;
+      this.listSucusal=data; 
     });
   }
 
   addSucursal(){
-    Swal.fire({
-      title: '¿Deseas agregar un nueva sucursal?',
-      
-      showCancelButton: true,
-      confirmButtonText: 'Si',
-      customClass: {
-        actions: 'my-actions',
-        cancelButton: 'order-1 ',
-        confirmButton: 'order-2 right-gap',
-        
-      }
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.router.navigateByUrl('/sucursales/agregarsucursal');
-      } else if (result.isDenied) {
-        this.router.navigateByUrl('/sucursales')
-      }
-    })
+    this.dep={
+      idSuc:"",
+      nomSuc:"",
+      dirSuc:""
+    }
+    this.modalTitle="Agregando sucursal";
+    this.ActivaNewSucursal=true;
+    this.refreshSucursalesList();
+  }
+  closeClick(){
+    this.ActivaNewSucursal=false;
+    this.refreshSucursalesList();
   }
 }
