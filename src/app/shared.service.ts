@@ -5,6 +5,7 @@ import { IMedicos } from './models/medicos';
 import { IPacientes } from './models/pacientes';
 import { ISucursales } from './models/sucursales';
 import { IMedicamento } from './models/medicamentos/medicamento';
+import { IConsulta } from './models/consulta/consulta';
 
 @Injectable({
   providedIn: 'root'
@@ -20,14 +21,14 @@ readonly APIUrl="https://localhost:44306/api";
   createMedico(medico: IMedicos):Observable<IMedicos>{
     return this.http.post<IMedicos>(this.APIUrl+'/Medicos', medico)
   }
-  updateMedico(medico: IMedicos):Observable<IMedicos>{
-    return this.http.put<IMedicos>(this.APIUrl+'/Medicos', medico)
+  getMedico(ID_DOC: number):Observable<IMedicos>{
+    return this.http.get<IMedicos>(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
   deleteMedico(ID_DOC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
-  getMedico(ID_DOC: number):Observable<any>{
-    return this.http.get(this.APIUrl+'/Medicos/'+ID_DOC)
+  updateMedico(ID_DOC: number, medicos: any):Observable<any>{
+    return this.http.get<IMedicos>(this.APIUrl+'/Medicos/'+ID_DOC, medicos)
 
   }
 
@@ -74,5 +75,11 @@ readonly APIUrl="https://localhost:44306/api";
   //METODOS ESPECIALIDAD
   getEspecialidad():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Especialidad');
+  }
+
+
+  //METODOS PARA CONSULTAS MEDICAS
+  createConsulta(consulta: IConsulta):Observable<IConsulta>{
+    return this.http.post<IConsulta>(this.APIUrl+'/consulta', consulta)
   }
 }

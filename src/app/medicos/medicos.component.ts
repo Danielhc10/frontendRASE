@@ -44,13 +44,15 @@ export class MedicosComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/agregarmedico');
+        this.router.navigateByUrl('/medicos/agregarmedico');
       } else if (result.isDenied) {
         this.router.navigateByUrl('/medicos')
       }
     })
     
   }
+
+
 
   clickDelete(ID_DOC: number){
     console.log(ID_DOC);

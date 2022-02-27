@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AntecedentesComponent } from './antecedentes/antecedentes.component';
+import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medicamento.component';
@@ -23,7 +24,7 @@ const routes: Routes = [
       {path: "**", component: MedicosComponent},
     ] 
   },
-  {path: "agregarmedico", component: AgregarMedicoComponent},
+  //{path: "agregarmedico", component: AgregarMedicoComponent},
   {path: "login", component: LoginComponent},
   {path: "sucursales", children:[
     { path: "agregarsucursal", component: AddSucursalComponent },
@@ -34,6 +35,10 @@ const routes: Routes = [
     { path: "**", component: ListMedicinaComponent }
   ]},
   {path: "antecedentes", component:AntecedentesComponent},
+  {path: "consultas", children:[
+    { path: "agregarconsultas", component: AddConsultaComponent },
+    { path: "**", component: MedicosComponent }
+  ]},
   {path: "**", component: HomeComponent}
 ];
 

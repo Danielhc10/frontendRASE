@@ -1,7 +1,9 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+
 import { IMedicos } from '../../models/medicos'
 
 @Component({
@@ -15,16 +17,20 @@ export class AgregarMedicoComponent implements OnInit {
    * curp: FormGroup;
   email: FormGroup;
    */ 
-
+  
   newMedic: FormGroup;
+  edicion:boolean=false;
+  listEsp: any=[];
   accion ="AGREGAR";
   ID_DOC=0;
+  
   
  
   constructor(
     private service: SharedService, 
     private router: Router,
-    private aRoute: ActivatedRoute) { 
+    private aRoute: ActivatedRoute,
+    private fb: FormBuilder) { 
       this.newMedic = new FormGroup({
         //idDoc: new FormControl(''),
         nomDoc: new FormControl('',[Validators.required]),
@@ -39,33 +45,51 @@ export class AgregarMedicoComponent implements OnInit {
       })
       this.ID_DOC = +this.aRoute.snapshot.paramMap.get('ID_DOC')!;
     }
-
+ 
   ngOnInit(): void {
+    this.service.getEspecialidad().subscribe(esp => {
+      this.listEsp = esp;
+      console.table(esp);
+    })
     this.esEditar();
   }
-
   esEditar(){
-    if(this.ID_DOC !==0){
-      this.accion="EDITAR";
-      this.service.getMedico(this.ID_DOC).subscribe(data=>{
-        console.table(data);
-        this.newMedic.patchValue({
-          nomDoc: data.NOM_DOC,
-          AP_PAT_DOC: data.AP_PAT_DOC,
-          AP_MAT_DOC: data.AP_MAT_DOC,
-          CURP_DOC: data.CURP_DOC,
-          REC_DIS: data.REC_DIS,
-          CORREO_DOC: data.CORREO_DOC,
-          ID_ESP: data.ID_ESP,
-          TEL_DOC: data.TEL_DOC,
-          CED_P: data.CED_P
-        })
-      },error=>{
-        console.log(error);
-        
-      })
-    }
+   if (this.ID_DOC != 0) {
+     this.accion="EDITAR";
+     this.service.getMedico(this.ID_DOC).subscribe(data=>{
+       console.table(data)
+       this.newMedic.patchValue({
+         nomDon: data.nomDoc,
+         apPatDoc: data.apPatDoc,
+         apMatDoc: data.apMatDoc,
+         curpDoc: data.curpDoc,
+         recDis: data.recDis,
+         idEsp: data.idEsp,
+         correoDoc: data.correoDoc,
+         telDoc: data.telDoc,
+         cedP: data.cedP
+       })
+     }, error =>{
+       console.log(error);
+     })
+   }   
   }
+  /* cargarFormulario(doctor: IMedicos){
+    console.table(doctor);
+    
+    this.newMedic.patchValue({
+      NOM_DOC: doctor.nomDoc,
+      AP_PAT_DOC: doctor.apPatDoc,
+      AP_MAT_DOC: doctor.apMatDoc,
+      CURP_DOC: doctor.curpDoc,
+      REC_DIS: doctor.recDis,
+      CORREO_DOC: doctor.correoDoc,
+      ID_ESP: doctor.idEsp,
+      TEL_DOC: doctor.telDoc,
+      CED_P: doctor.cedP
+    })
+  } */
+
   addMedico(){
     let medico: IMedicos = Object.assign({}, this.newMedic.value);
     console.table(medico);
@@ -77,6 +101,27 @@ export class AgregarMedicoComponent implements OnInit {
   onSaveSuccess(){
     this.router.navigate(['/medicos'])
   }
+
+  /* editarDoc(doctor: IMedicos){
+    //console.log(doctor);
+    this.accion="EDITAR";
+    this.ID_DOC = doctor.idDoc;
+
+    console.log(doctor);
+    
+    this.newMedic.patchValue({
+      NOM_DOC: doctor.nomDoc,
+      AP_PAT_DOC: doctor.apPatDoc,
+      AP_MAT_DOC: doctor.apMatDoc,
+      CURP_DOC: doctor.curpDoc,
+      REC_DIS: doctor.recDis,
+      CORREO_DOC: doctor.correoDoc,
+      ID_ESP: doctor.idEsp,
+      TEL_DOC: doctor.telDoc,
+      CED_P: doctor.cedP
+    })
+    
+  } */
   changeUpperCase(textToUpper: string) {
     //console.log("textToUpper: " + textToUpper);
     //var newWord = textToUpper.toUpperCase();

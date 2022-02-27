@@ -1,7 +1,7 @@
-<!--
+
 <div class="container-mt-5">
     <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-10 offset-lg-1">
             <div class="card">
                 <div class="card-body text-center">
                     <h1>DATOS DE CONSULTA</h1>
@@ -10,115 +10,138 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-lg-8 offset-lg-2">
+        <div class="col-lg-10 offset-lg-1">
             <div class="card">
                 <form [formGroup]="newConsulta" appearance="fill">
                     <p></p>
                     <mat-form-field appearance="fill">
-                        <mat-label>ID DEL MÉDICO</mat-label>
-                        <input matInput placeholder="ID"
-                                formControlName="idDoc">
-                        <mat-error *ngIf="newPaciente.controls.nomPac.hasError('required')">
-                            El nombre es <strong>requerido</strong>
+                        <mat-label>Médico asignado</mat-label>
+                        <mat-select disableRipple formControlName="idDoc">
+                            <mat-option *ngFor="let med of listMedicos" [value]="med.ID_DOC">{{med.NOM_DOC +' '+ med.AP_PAT_DOC +' '+ med.AP_MAT_DOC}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="newConsulta.controls.idDoc.hasError('required')">
+                            <strong>El médico asignado es requerido</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Apellido paterno</mat-label>
-                        <input matInput placeholder="Apellido paterno"
-                                formControlName="apPatPac">
-                        <mat-error *ngIf="newPaciente.controls.apPatPac.hasError('required')">
-                            El apellido paterno es <strong>requerido</strong>
+                        <mat-label>Paciente</mat-label>
+                        <mat-select disableRipple formControlName="idPac">
+                            <mat-option *ngFor="let pac of listPacientes" [value]="pac.ID_PAC">{{pac.NOM_PAC +' '+ pac.AP_PAT_PAC +' '+ pac.AP_MAT_PAC}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="newConsulta.controls.idPac.hasError('required')">
+                            <strong>El nombre del aciente es requerido</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Apellido materno</mat-label>
-                        <input matInput placeholder="Apellido materno"
-                                formControlName="apMatPac">
-                        <mat-error *ngIf="newPaciente.controls.apMatPac.hasError('required')">
-                            El apellido materno es <strong>requerido</strong>
+                        <mat-label>Sucursal</mat-label>
+                        <mat-select disableRipple formControlName="idSuc">
+                            <mat-option *ngFor="let suc of listSucursales" [value]="suc.ID_SUC">{{suc.NOM_SUC}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="newConsulta.controls.idSuc.hasError('required')">
+                            <strong>La sucursal es requerida</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Fecha de nacimiento</mat-label>
-                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/AAAA" formControlName="FecNacPac">
+                        <mat-label>Fecha de consulta</mat-label>
+                        <input matInput [matDatepicker]="picker" placeholder="MM/DD/AAAA" formControlName="fechaCon">
                         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Sexo</mat-label>
-                        <mat-select disableRipple formControlName="sexoPac">
-                          <mat-option value="MASCULINO">Hombre</mat-option>
-                          <mat-option value="FEMENINO">Mujer</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>CURP</mat-label>
-                        <input matInput maxlength="18" 
-                                #input [value]="input.value.toUpperCase()" 
-                                placeholder="CURP"
-                                formControlName="curpPac">
-                        <mat-error *ngIf="newPaciente.controls.curpPac.hasError('required')">
-                           El <strong>CURP</strong> es <strong>requerido</strong>
-                        </mat-error> 
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Correo</mat-label>
-                        <input matInput placeholder="example@gmail.com" type="email" formControlName="correoPac">
-                        <mat-error *ngIf="newPaciente.controls.correoPac.hasError('correoPac') && !newPaciente.controls.correoPac.hasError('required')">
-                            Por favor ingresa un correo valido
-                        </mat-error>
-                        <mat-error *ngIf="newPaciente.controls.correoPac.hasError('required')">
-                            El correo es <strong>requerido</strong>
-                        </mat-error> 
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Tipo de sangre</mat-label>
-                        <mat-select disableRipple formControlName="tSangrePac">
-                          <mat-option value="A+">A+</mat-option>
-                          <mat-option value="A-">A-</mat-option>
-                          <mat-option value="O+">O+</mat-option>
-                          <mat-option value="O-">O-</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Estado civil</mat-label>
-                        <mat-select disableRipple formControlName="estCivPac">
-                          <mat-option value="CASADO">Casado(a)</mat-option>
-                          <mat-option value="SOLTERO">Soltero(a)</mat-option>
-                          <mat-option value="DIVORSIADO">Divorsiado(a)</mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                    <mat-form-field appearance="fill">
-                        <mat-label>Ocupación</mat-label>
-                        <input matInput placeholder="Obrero"
-                                formControlName="ocupacionPac">
-                        <mat-error *ngIf="newPaciente.controls.ocupacionPac.hasError('required')">
-                            El nombre es <strong>requerido</strong>
+                        <mat-label>Estatura</mat-label>
+                        <input matInput maxlength="3" placeholder="Estatura en metros o en centimetros" type="number" min="0"  formControlName="estatura">
+                        <mat-error *ngIf="newConsulta.controls.estatura.hasError('required')">
+                            <strong>La eststura es requerida</strong>
                         </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
-                        <mat-label>Número</mat-label>
-                        <input matInput placeholder="7821234567" formControlName="telPac" matInput maxlength="10">
-                        <mat-error *ngIf="newPaciente.controls.telPac.hasError('telPac') && !newPaciente.controls.telPac.hasError('required')">
-                            Por favor ingresa un número de teléfono válido
+                        <mat-label>Peso</mat-label>
+                        <input matInput maxlength="5" placeholder="Kg" type="number" min="0"  formControlName="peso">
+                        <mat-error *ngIf="newConsulta.controls.peso.hasError('required')">
+                            <strong>El peso es requerido</strong>
                         </mat-error>
-                        <mat-error *ngIf="newPaciente.controls.telPac.hasError('required')">
-                            El numero de teléfono es <strong>requerido</strong>
-                        </mat-error> 
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Masa corporal</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="masaCorp">
+                        <mat-error *ngIf="newConsulta.controls.masaCorp.hasError('required')">
+                            <strong>La masa corporal es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Temperatura</mat-label>
+                        <input matInput maxlength="5" placeholder="C°" type="number" min="0"  formControlName="temperatura">
+                        <mat-error *ngIf="newConsulta.controls.temperatura.hasError('required')">
+                            <strong>La temperatura es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Frecuencia respiratoria</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="frecResp">
+                        <mat-error *ngIf="newConsulta.controls.frecResp.hasError('required')">
+                            <strong>La frecuecnia respiratoria es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Presión arterial</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="presArt">
+                        <mat-error *ngIf="newConsulta.controls.presArt.hasError('required')">
+                            <strong>La presión arteríal es requerida es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Frecuencia cardiaca</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="frecCar">
+                        <mat-error *ngIf="newConsulta.controls.frecCar.hasError('required')">
+                            <strong>La frecuencia cardiaca es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Grasa corporal</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="grasaCorp">
+                        <mat-error *ngIf="newConsulta.controls.grasaCorp.hasError('required')">
+                            <strong>La grasa muscular es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Masa muscular</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="masaMusc">
+                        <mat-error *ngIf="newConsulta.controls.masaMusc.hasError('required')">
+                            <strong>La masa muscular es requerida</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Saturación de oxígeno</mat-label>
+                        <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="satOxigeno">
+                        <mat-error *ngIf="newConsulta.controls.satOxigeno.hasError('required')">
+                            <strong>La saturación de oxígeno es requerida</strong>
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field class="example-full-width" appearance="fill">
-                        <mat-label>Notas</mat-label>
-                        <input matInput #notas maxlength="100" 
-                                placeholder="Notas relevantes"
-                                formControlName="notasPac">
-                        <mat-hint align="end">{{notas.value.length}} / 100</mat-hint>
+                        <mat-label>Motivo de visita</mat-label>
+                        <input matInput #motivo maxlength="90" 
+                                placeholder="Motivo de visita"
+                                formControlName="motivo">
+                        <mat-hint align="end">{{motivo.value.length}} / 90</mat-hint>
+                        <mat-error *ngIf="newConsulta.controls.motivo.hasError('required')">
+                            <strong>El motivo de la consulta es requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Diagnostico</mat-label>
+                        <input matInput #diagnostico maxlength="90" 
+                                placeholder="Diagnostico final"
+                                formControlName="diagnostico">
+                        <mat-hint align="end">{{diagnostico.value.length}} / 90</mat-hint>
+                        <mat-error *ngIf="newConsulta.controls.diagnostico.hasError('required')">
+                            <strong>El diagnostico final es requerido</strong>
+                        </mat-error>
                     </mat-form-field>
                     <div class="example-button-row" aling="center"> 
-                        <button (click)="addPaciente()" [disabled]="!newPaciente.invalid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                        <button (click)="addConsulta()" [disabled]="!newConsulta.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
--->
