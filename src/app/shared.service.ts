@@ -21,14 +21,24 @@ readonly APIUrl="https://localhost:44306/api";
   createMedico(medico: IMedicos):Observable<IMedicos>{
     return this.http.post<IMedicos>(this.APIUrl+'/Medicos', medico)
   }
-  getMedico(ID_DOC: number):Observable<IMedicos>{
-    return this.http.get<IMedicos>(this.APIUrl+'/Medicos/'+ ID_DOC)
+  getMedico(ID_DOC: number){
+    return this.http.get<any/* {
+      NOM_DOC: string,
+      AP_PAT_DOC: string,
+      AP_MAT_DOC: string,
+      CURP_DOC:string,
+      REC_DIS: number,
+      ID_ESP: number,
+      CORREO_DOC: string,
+      TEL_DOC: string,
+      CED_P: string,
+    } */>(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
   deleteMedico(ID_DOC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
   updateMedico(ID_DOC: number, medicos: any):Observable<any>{
-    return this.http.get<IMedicos>(this.APIUrl+'/Medicos/'+ID_DOC, medicos)
+    return this.http.put<IMedicos>(this.APIUrl+'/Medicos/'+ID_DOC, medicos)
 
   }
 
@@ -43,6 +53,10 @@ readonly APIUrl="https://localhost:44306/api";
   deletePaciente(ID_PAC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Pacientes/'+ ID_PAC)
   }
+  updatePaciente(ID_PAC: number, paciente: any):Observable<any>{
+    return this.http.put<IPacientes>(this.APIUrl+'/Pacientes/'+ID_PAC, paciente)
+
+  }
 
 
 
@@ -56,8 +70,10 @@ readonly APIUrl="https://localhost:44306/api";
   deleteSucursal(ID_SUC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Sucursales/'+ ID_SUC)
   }
+  updateSucursal(ID_SUC: number, sucural: any):Observable<any>{
+    return this.http.put<ISucursales>(this.APIUrl+'/Sucursales/'+ID_SUC, sucural)
 
-
+  }
 
 
   //METODOS PARA MEDICAMENTOS
@@ -70,11 +86,20 @@ readonly APIUrl="https://localhost:44306/api";
   deleteMedicamentos(ID_MED: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Medicina/'+ ID_MED)
   }
+  updateMedicamento(ID_MED: number, medicamento: any):Observable<any>{
+    return this.http.put<IMedicamento>(this.APIUrl+'/Medicina/'+ID_MED, medicamento)
+
+  }
 
 
   //METODOS ESPECIALIDAD
   getEspecialidad():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Especialidad');
+  }
+
+
+  getAtencendeteQuirurgico():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/Antqui')
   }
 
 

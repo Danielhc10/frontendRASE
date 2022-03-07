@@ -114,9 +114,10 @@
                         <mat-hint align="end">{{notas.value.length}} / 100</mat-hint>
                     </mat-form-field>
                     <div class="example-button-row" aling="center"> 
-                        <button (click)="addPaciente()" [disabled]="!newPaciente.invalid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                        <button (click)="addPaciente()" [disabled]="!newPaciente.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
                     </div>
                 </form>
+                
             </div>
         </div>
     </div>

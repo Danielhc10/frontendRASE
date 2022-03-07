@@ -8,7 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
-import { AntecedentesComponent } from './antecedentes/antecedentes.component';
+//import { AntecedentesComponent } from './antecedentes/antecedentes.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { SucursalesComponent } from './sucursales/sucursales.component';
 import { MedicamentosComponent } from './medicamentos/medicamentos.component';
@@ -18,7 +18,7 @@ import { HeaderComponent } from './compartidos/header/header.component';
 //import { ScrollToTopComponent } from './compartidos/scroll-to-top/scroll-to-top.component';
 import { HomeComponent } from './home/home.component';
 import { AgregarMedicoComponent } from './medicos/agregar-medico/agregar-medico.component';
-import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedentes/agregar-antecedentes.component';
+//import { AgregarAntecedentesComponent } from './antecedentes/agregar-antecedentes/agregar-antecedentes.component';
 import { MaterialModule } from './material/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -32,13 +32,14 @@ import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medi
 import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
 import { ConsultaComponent } from './consultas/consulta/consulta.component';
 import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
+//import { AntQuirurgicoComponent } from './antecedentes/ant-quirurgico/ant-quirurgico.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PacientesComponent,
-    AntecedentesComponent,
+    //AntecedentesComponent,
     MedicosComponent,
     SucursalesComponent,
     MedicamentosComponent,
@@ -48,7 +49,7 @@ import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.comp
     //ScrollToTopComponent,
     HomeComponent,
     AgregarMedicoComponent,
-    AgregarAntecedentesComponent,
+    //AgregarAntecedentesComponent,
     MedicosListComponent,
     EditMedicoComponent,
     ListPacienteComponent,
@@ -58,6 +59,7 @@ import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.comp
     ListMedicinaComponent,
     ConsultaComponent,
     AddConsultaComponent,
+    //AntQuirurgicoComponent,
   ],
   imports: [
     BrowserModule,
