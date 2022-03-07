@@ -6,6 +6,7 @@ import { IPacientes } from './models/pacientes';
 import { ISucursales } from './models/sucursales';
 import { IMedicamento } from './models/medicamentos/medicamento';
 import { IConsulta } from './models/consulta/consulta';
+import { Antpat } from './models/antpat';
 
 @Injectable({
   providedIn: 'root'
@@ -82,4 +83,13 @@ readonly APIUrl="https://localhost:44306/api";
   createConsulta(consulta: IConsulta):Observable<IConsulta>{
     return this.http.post<IConsulta>(this.APIUrl+'/consulta', consulta)
   }
+
+  //METODOS PARA ANT PATOLOGICOS
+  createAntPat(antpat:Antpat):Observable<Antpat>{
+    return this.http.post<Antpat>(this.APIUrl+'/Antpat',antpat)
+  }
+  getAntecedentes():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/c_ant')
+  }
+
 }

@@ -9,7 +9,7 @@
         </div>
     </div>
     <div class="row mt-3">
-        <div class="col-lg-8 offset-lg-2"> 
+        <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <form [formGroup]="newMedic" appearance="fill">
                     <img class="foto1"src="assets/images-home/estetoscopio.png">
@@ -40,13 +40,13 @@
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>CURP</mat-label>
-                        <input matInput maxlength="18" 
-                                #input [value]="input.value.toUpperCase()" 
+                        <input matInput maxlength="18"
+                                #input [value]="input.value.toUpperCase()"
                                 placeholder="18 Carácteres"
                                 formControlName="curpDoc">
                         <mat-error *ngIf="newMedic.controls.curpDoc.hasError('required')">
-                           El <strong>CURP</strong> es <strong>requerido</strong>
-                        </mat-error> 
+                          El <strong>CURP</strong> es <strong>requerido</strong>
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                             <mat-label>Correo</mat-label>
@@ -56,17 +56,17 @@
                             </mat-error>
                             <mat-error *ngIf="newMedic.controls.correoDoc.hasError('required')">
                                 El correo es <strong>requerido</strong>
-                            </mat-error> 
+                            </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Cedúla</mat-label>
                         <input matInput maxlength="8" placeholder="XAXAXAXAXA" formControlName="cedP">
                         <mat-error *ngIf="newMedic.controls.cedP.hasError('cedP') && !newMedic.controls.cedP.hasError('required')">
-                            Por favor ingresa un número de cedula valido
+                            Por favor ingresa un número de cédula válido
                         </mat-error>
                         <mat-error *ngIf="newMedic.controls.cedP.hasError('required')">
                             La cedúla es <strong>requerida</strong>
-                        </mat-error> 
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Número</mat-label>
@@ -76,7 +76,7 @@
                         </mat-error>
                         <mat-error *ngIf="newMedic.controls.telDoc.hasError('required')">
                             El numero de teléfono es <strong>requerido</strong>
-                        </mat-error> 
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Número de recetas</mat-label>
@@ -86,7 +86,7 @@
                         </mat-error>
                         <mat-error *ngIf="newMedic.controls.recDis.hasError('required')">
                             El numero de recetas es <strong>requerido</strong>
-                        </mat-error> 
+                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Especialidad</mat-label>
@@ -94,8 +94,8 @@
                           <mat-option *ngFor="let esp of listEsp" [value]="esp.ID_ESP">{{esp.N_ESP}}</mat-option>
                         </mat-select>
                     </mat-form-field>
-                      
-                    <div class="example-button-row"> 
+
+                    <div class="example-button-row">
                         <button (click)="addMedico()" [disabled]="!newMedic.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
                     </div>
                 </form>

@@ -6,8 +6,8 @@ input[required]::after { content: '*'; color: red; }
 .example-button-row {
     display: table-cell;
     width: 490px;
-  }
+}
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
- }
+}

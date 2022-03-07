@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { Observable, throwError } from 'rxjs';
-import { IUser, UserResponse } from '../models/users.interface'; 
+import { IUser, UserResponse } from '../models/users.interface';
 import { catchError, map } from "rxjs/operators";
 
 
@@ -15,8 +15,8 @@ export class AuthService {
 
   constructor(private http: HttpClient) {
     this.headersJSON = new HttpHeaders().set('Content-Type', 'application/json');
-    
-   }
+
+  }
 
   login(authData: IUser): Observable<any>{
     return this.http.post<UserResponse>(`${environment.httpUrl + environment.httpApi}/login`, authData, {headers: this.headersJSON})

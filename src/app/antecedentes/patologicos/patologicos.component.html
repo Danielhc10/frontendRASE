@@ -1,0 +1,36 @@
+<div class="container-mt-5 pt-3">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-right">
+          <h1>Antecedentes Patológicos</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row ">
+    <div class="col-lg-8 offset-lg-2">
+
+      <div class="card" >
+
+        <div>
+          <form [formGroup]="antPat" appearance="fill">
+            <mat-label class="p-3">Diabetes</mat-label>
+            <mat-form-field class="option p-2">
+              <mat-select disableRipple formControlName="regPat">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(antPat.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

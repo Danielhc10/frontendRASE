@@ -32,6 +32,14 @@ import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medi
 import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
 import { ConsultaComponent } from './consultas/consulta/consulta.component';
 import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
+import { PatologicosComponent } from './antecedentes/patologicos/patologicos.component';
+import { NoPatologicosComponent } from './antecedentes/no-patologicos/no-patologicos.component';
+import { HeredofamComponent } from './antecedentes/heredofam/heredofam.component';
+import { PsiquiatricoComponent } from './antecedentes/psiquiatrico/psiquiatrico.component';
+import { ObstetricoComponent } from './antecedentes/obstetrico/obstetrico.component';
+import { QuirurgicoComponent } from './antecedentes/quirurgico/quirurgico.component';
+import { AlergicoComponent } from './antecedentes/alergico/alergico.component';
+import { TratamientoComponent } from './antecedentes/tratamiento/tratamiento.component';
 
 
 @NgModule({
@@ -58,6 +66,14 @@ import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.comp
     ListMedicinaComponent,
     ConsultaComponent,
     AddConsultaComponent,
+    PatologicosComponent,
+    NoPatologicosComponent,
+    HeredofamComponent,
+    PsiquiatricoComponent,
+    ObstetricoComponent,
+    QuirurgicoComponent,
+    AlergicoComponent,
+    TratamientoComponent,
   ],
   imports: [
     BrowserModule,
