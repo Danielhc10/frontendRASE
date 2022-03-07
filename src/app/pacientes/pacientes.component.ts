@@ -68,19 +68,21 @@ export class PacientesComponent implements OnInit {
     let paciente: IPacientes = Object.assign({}, this.newPaciente.value);
     console.table(paciente);
     
-    if (this.ID_PAC == undefined) {
-      //Agregamos al paciente
-      this.servicio.createPaciente(paciente)
-      .subscribe(paciente => this.onSaveSuccess(),
-                  error => console.log(error))      
-    } else {
+    if (this.ID_PAC != 0) {
+      //Actualizamos al paciente
       paciente.idPac = this.ID_PAC;
       this.servicio.updatePaciente(this.ID_PAC, paciente).subscribe(data=>{
         this.onSaveSuccess();
       })
+     
+    } else {
+      this.servicio.createPaciente(paciente)
+      .subscribe(/* paciente => this.onSaveSuccess(), */
+                  error => console.log(error)) 
     }
 
   }
+  
   onSaveSuccess(){
     this.router.navigate(['/medicos/pacientes'])
   }

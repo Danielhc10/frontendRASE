@@ -32,7 +32,6 @@ import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medi
 import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
 import { ConsultaComponent } from './consultas/consulta/consulta.component';
 import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
-<<<<<<< HEAD
 import { PatologicosComponent } from './antecedentes/patologicos/patologicos.component';
 import { NoPatologicosComponent } from './antecedentes/no-patologicos/no-patologicos.component';
 import { HeredofamComponent } from './antecedentes/heredofam/heredofam.component';
@@ -41,10 +40,6 @@ import { ObstetricoComponent } from './antecedentes/obstetrico/obstetrico.compon
 import { QuirurgicoComponent } from './antecedentes/quirurgico/quirurgico.component';
 import { AlergicoComponent } from './antecedentes/alergico/alergico.component';
 import { TratamientoComponent } from './antecedentes/tratamiento/tratamiento.component';
-=======
-import { RecetasComponent } from './consultas/recetas/recetas.component';
-//import { AntQuirurgicoComponent } from './antecedentes/ant-quirurgico/ant-quirurgico.component';
->>>>>>> daea1c274a92529ddac936509dcab8cddafd2cb0
 
 
 @NgModule({
@@ -71,7 +66,6 @@ import { RecetasComponent } from './consultas/recetas/recetas.component';
     ListMedicinaComponent,
     ConsultaComponent,
     AddConsultaComponent,
-<<<<<<< HEAD
     PatologicosComponent,
     NoPatologicosComponent,
     HeredofamComponent,
@@ -80,10 +74,6 @@ import { RecetasComponent } from './consultas/recetas/recetas.component';
     QuirurgicoComponent,
     AlergicoComponent,
     TratamientoComponent,
-=======
-    RecetasComponent,
-    //AntQuirurgicoComponent,
->>>>>>> daea1c274a92529ddac936509dcab8cddafd2cb0
   ],
   imports: [
     BrowserModule,
