@@ -21,6 +21,7 @@ const routes: Routes = [
       {path: "editarmedico/:ID_DOC", component: AgregarMedicoComponent},
       {path: "pacientes", component: ListPacienteComponent},
       {path: "agregarpac", component: PacientesComponent},
+      {path: "editarpaciente/:ID_PAC", component: PacientesComponent},
       {path: "**", component: MedicosComponent},
     ] 
   },

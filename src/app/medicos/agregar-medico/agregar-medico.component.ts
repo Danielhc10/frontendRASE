@@ -25,6 +25,7 @@ export class AgregarMedicoComponent implements OnInit {
   accion ="AGREGAR";
   
   ID_DOC=0;
+  
  
   constructor(
     private service: SharedService, 
@@ -44,6 +45,7 @@ export class AgregarMedicoComponent implements OnInit {
         cedP: new FormControl('',[Validators.required]),
       })
       this.ID_DOC = +this.aRoute.snapshot.paramMap.get('ID_DOC')!;
+      
     }
  
   ngOnInit(): void {
@@ -54,7 +56,7 @@ export class AgregarMedicoComponent implements OnInit {
       this.service.getMedico(this.ID_DOC).subscribe(([medico])=>{
         //medico = medico;
 
-        //console.log(medico.NOM_DOC);
+        console.log(medico.ID_ESP);
         
         this.newMedic.setValue({
           nomDoc: medico.NOM_DOC,//NOM_DOC
@@ -122,11 +124,21 @@ export class AgregarMedicoComponent implements OnInit {
   addMedico(){
     let medico: IMedicos = this.newMedic.value;
     console.table(medico);
+    if (this.ID_DOC == undefined) {
+      //Agregamos un nuevo medico
+      this.service.createMedico(medico)
+          .subscribe(medico => this.onSaveSuccess(),
+            
+           error => console.log(error))        
+    } else {
+      //Actualizamos el medico
+      medico.idDoc = this.ID_DOC;
+      this.service.updateMedico(this.ID_DOC, medico).subscribe(data=>{
+        console.log(data);
+        this.onSaveSuccess();
+      })
+    }
     
-    this.service.createMedico(medico)
-      .subscribe(medico => this.onSaveSuccess(),
-      
-                  error => console.log(error))
   }
   onSaveSuccess(){
     this.router.navigate(['/medicos'])

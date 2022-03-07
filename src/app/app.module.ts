@@ -32,6 +32,7 @@ import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medi
 import { ListMedicinaComponent } from './medicamentos/list-medicina/list-medicina.component';
 import { ConsultaComponent } from './consultas/consulta/consulta.component';
 import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
+import { RecetasComponent } from './consultas/recetas/recetas.component';
 //import { AntQuirurgicoComponent } from './antecedentes/ant-quirurgico/ant-quirurgico.component';
 
 
@@ -59,6 +60,7 @@ import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.comp
     ListMedicinaComponent,
     ConsultaComponent,
     AddConsultaComponent,
+    RecetasComponent,
     //AntQuirurgicoComponent,
   ],
   imports: [

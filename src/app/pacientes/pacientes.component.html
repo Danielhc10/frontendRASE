@@ -4,7 +4,7 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <h1>AGREGUEMOS A UN NUEVO PACIENTE</h1>
+                    <h1>{{accion}} PACIENTE</h1>
                 </div>
             </div>
         </div>
@@ -114,7 +114,7 @@
                         <mat-hint align="end">{{notas.value.length}} / 100</mat-hint>
                     </mat-form-field>
                     <div class="example-button-row" aling="center"> 
-                        <button (click)="addPaciente()" [disabled]="!newPaciente.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
+                        <button (click)="addPaciente()" [disabled]="newPaciente.valid" mat-stroked-button color="primary" appearance="fill">Aceptar</button>
                     </div>
                 </form>
                 

@@ -37,8 +37,8 @@ readonly APIUrl="https://localhost:44306/api";
   deleteMedico(ID_DOC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Medicos/'+ ID_DOC)
   }
-  updateMedico(ID_DOC: number, medicos: any):Observable<any>{
-    return this.http.put<IMedicos>(this.APIUrl+'/Medicos/'+ID_DOC, medicos)
+  updateMedico(ID_DOC: number, medico: IMedicos):Observable<any>{
+    return this.http.put<IMedicos>(this.APIUrl+'/Medicos/'+ID_DOC, medico)
 
   }
 
@@ -49,6 +49,9 @@ readonly APIUrl="https://localhost:44306/api";
   }
   getPacientesList():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Pacientes');
+  }
+  getPaciente(ID_PAC: number){
+    return this.http.get<any>(this.APIUrl+'/Pacientes/'+ ID_PAC)
   }
   deletePaciente(ID_PAC: number): Observable<any>{
     return this.http.delete(this.APIUrl+'/Pacientes/'+ ID_PAC)
