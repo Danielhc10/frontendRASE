@@ -21,8 +21,10 @@ export class ListMedicinaComponent implements OnInit {
     this.refreshMedList();
   }
   refreshMedList(){
-    this.servicio.getMedicosList().subscribe(data=>{
+    this.servicio.getMedicamentos().subscribe(data=>{
       this.listMedicamentos=data;
+      console.table(data);
+      
     });
   }
   addMedicamento(){

@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ɵɵtsModuleIndicatorApiExtractorWorkaround } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
 
@@ -22,8 +23,8 @@ export class AgregarMedicoComponent implements OnInit {
   edicion:boolean=false;
   listEsp: any=[];
   accion ="AGREGAR";
-  ID_DOC=0;
   
+  ID_DOC=0;
   
  
   constructor(
@@ -44,16 +45,46 @@ export class AgregarMedicoComponent implements OnInit {
         cedP: new FormControl('',[Validators.required]),
       })
       this.ID_DOC = +this.aRoute.snapshot.paramMap.get('ID_DOC')!;
+      
     }
  
   ngOnInit(): void {
+
+    if (this.ID_DOC!=0) {
+      this.accion="EDITAR"
+
+      this.service.getMedico(this.ID_DOC).subscribe(([medico])=>{
+        //medico = medico;
+
+        console.log(medico.ID_ESP);
+        
+        this.newMedic.setValue({
+          nomDoc: medico.NOM_DOC,//NOM_DOC
+          apPatDoc: medico.AP_PAT_DOC,//AP_PAT_DOC
+          apMatDoc: medico.AP_MAT_DOC,
+          curpDoc: medico.CURP_DOC,
+          recDis: medico.REC_DIS,
+          correoDoc: medico.CURP_DOC,
+          idEsp: medico.ID_ESP,
+          telDoc: medico.TEL_DOC,
+          cedP: medico.CED_P,
+        })
+        
+        
+      })
+      
+      
+      
+    }
+    
+    
     this.service.getEspecialidad().subscribe(esp => {
       this.listEsp = esp;
       console.table(esp);
     })
-    this.esEditar();
+   // this.esEditar();
   }
-  esEditar(){
+  /* esEditar(){
    if (this.ID_DOC != 0) {
      this.accion="EDITAR";
      this.service.getMedico(this.ID_DOC).subscribe(data=>{
@@ -73,7 +104,7 @@ export class AgregarMedicoComponent implements OnInit {
        console.log(error);
      })
    }   
-  }
+  } */
   /* cargarFormulario(doctor: IMedicos){
     console.table(doctor);
     
@@ -91,12 +122,23 @@ export class AgregarMedicoComponent implements OnInit {
   } */
 
   addMedico(){
-    let medico: IMedicos = Object.assign({}, this.newMedic.value);
+    let medico: IMedicos = this.newMedic.value;
     console.table(medico);
+    if (this.ID_DOC == undefined) {
+      //Agregamos un nuevo medico
+      this.service.createMedico(medico)
+          .subscribe(medico => this.onSaveSuccess(),
+            
+           error => console.log(error))        
+    } else {
+      //Actualizamos el medico
+      medico.idDoc = this.ID_DOC;
+      this.service.updateMedico(this.ID_DOC, medico).subscribe(data=>{
+        console.log(data);
+        this.onSaveSuccess();
+      })
+    }
     
-    this.service.createMedico(medico)
-      .subscribe(medico => this.onSaveSuccess(),
-                  error => console.log(error))
   }
   onSaveSuccess(){
     this.router.navigate(['/medicos'])

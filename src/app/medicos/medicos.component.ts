@@ -60,7 +60,7 @@ export class MedicosComponent implements OnInit {
       this.refreshDocList();
     }, error =>{
       console.log(error); 
-      
+       
     })
   }
 

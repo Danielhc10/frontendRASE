@@ -10,4 +10,11 @@ input[required]::after { content: '*'; color: red; }
 .example-additional-selection {
     opacity: 0.75;
     font-size: 0.75em;
+<<<<<<< HEAD
+=======
+ }
+
+.mat-form-field {
+  margin-left: 8px;
+>>>>>>> daea1c274a92529ddac936509dcab8cddafd2cb0
 }

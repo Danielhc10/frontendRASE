@@ -36,7 +36,7 @@
                             <td>{{pacientes.TEL_PAC}}</td>
                             <td>{{pacientes.NOTAS_PAC}}</td>
                             <td>
-                                <a (click)="editClick(medicos)" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
+                                <a [routerLink]="['/medicos/editarpaciente', pacientes.ID_PAC]" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="clickDelete(pacientes.ID_PAC)">delete</mat-icon>
                             </td>
                         </tr>

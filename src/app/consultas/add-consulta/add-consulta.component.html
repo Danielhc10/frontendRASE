@@ -99,16 +99,10 @@
                     <mat-form-field appearance="fill">
                         <mat-label>Grasa corporal</mat-label>
                         <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="grasaCorp">
-                        <mat-error *ngIf="newConsulta.controls.grasaCorp.hasError('required')">
-                            <strong>La grasa muscular es requerida</strong>
-                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Masa muscular</mat-label>
                         <input matInput maxlength="5" placeholder="" type="number" min="0"  formControlName="masaMusc">
-                        <mat-error *ngIf="newConsulta.controls.masaMusc.hasError('required')">
-                            <strong>La masa muscular es requerida</strong>
-                        </mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Saturación de oxígeno</mat-label>

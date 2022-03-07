@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IPacientes } from '../models/pacientes';
 import { SharedService } from '../shared.service';
 
@@ -17,9 +17,11 @@ export class PacientesComponent implements OnInit {
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newPaciente: FormGroup;
 
-  constructor(private servicio: SharedService, private router: Router) { }
-  
-  ngOnInit(): void {
+  accion="AGREGAR"
+  ID_PAC=0;
+  constructor(private servicio: SharedService,
+    private router: Router,
+    private aRoute: ActivatedRoute) {
     this.newPaciente = new FormGroup({
       nomPac: new FormControl('',[Validators.required]),
       apPatPac: new FormControl('',[Validators.required]),
@@ -35,14 +37,49 @@ export class PacientesComponent implements OnInit {
       notasPac: new FormControl('',[Validators.required]),
       archPac: new FormControl('',[Validators.required]),
     });
+    this.ID_PAC =+this.aRoute.snapshot.paramMap.get('ID_PAC')
+   }
+  
+  ngOnInit(): void {
+    if(this.ID_PAC!=0){
+      this.accion="EDITAR";
+
+      this.servicio.getPaciente(this.ID_PAC).subscribe(([paciente])=>{
+        this.newPaciente.setValue({
+          nomPac: paciente.NOM_PAC,
+          apPatPac: paciente.AP_PAT_PAC,
+          apMatPac: paciente.AP_MAT_PAC,
+          FecNacPac: paciente.FEC_NAC_PAC,
+          sexoPac: paciente.SEXO_PAC,
+          curpPac: paciente.CURP_PAC,
+          telPac: paciente.TEL_PAC,
+          correoPac: paciente.CORREO_PAC,
+          tSangrePac: paciente.T_SANGRE_PAC,
+          estCivPac: paciente.EST_CIV_PAC,
+          ocupacionPac: paciente.OCUPACION_PAC,
+          notasPac: paciente.NOTAS_PAC,
+          archPac: paciente.ARCH_PAC
+        })
+      })
+    }
+
   }
   addPaciente(){
     let paciente: IPacientes = Object.assign({}, this.newPaciente.value);
     console.table(paciente);
     
-    this.servicio.createPaciente(paciente)
+    if (this.ID_PAC == undefined) {
+      //Agregamos al paciente
+      this.servicio.createPaciente(paciente)
       .subscribe(paciente => this.onSaveSuccess(),
-                  error => console.log(error))
+                  error => console.log(error))      
+    } else {
+      paciente.idPac = this.ID_PAC;
+      this.servicio.updatePaciente(this.ID_PAC, paciente).subscribe(data=>{
+        this.onSaveSuccess();
+      })
+    }
+
   }
   onSaveSuccess(){
     this.router.navigate(['/medicos/pacientes'])
