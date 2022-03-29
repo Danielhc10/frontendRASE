@@ -43,14 +43,30 @@ export class ListMedicinaComponent implements OnInit {
     this.ActivaNewMedicamento= true;
   }
   clickDelete(ID_MED: number){
-    console.log('Medicamento con ID: '+ID_MED+' fue eliminado correctamente');
-    
-    this.servicio.deleteMedicamentos(ID_MED).subscribe(data=>{
-      this.refreshMedList();
-    },error => {
-      console.log(error);
-      
-    })  
+    Swal.fire({
+      title: '¿Estas seguro de eliminar el registro?',
+      text: "Una vez eliminado no se podrá recuperar.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.servicio.deleteMedicamentos(ID_MED).subscribe(data=>{
+          this.refreshMedList();
+        },error => {
+          console.log(error);
+          
+        }),
+        Swal.fire(
+          'Eliminado',
+          'El registro se ha eliminado correctamente',
+          'success'
+        )  
+      }
+    })
+    //console.log('Medicamento con ID: '+ID_MED+' fue eliminado correctamente');    
   }
   
   closeClick(){

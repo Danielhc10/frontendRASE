@@ -43,13 +43,31 @@ export class ListPacienteComponent implements OnInit {
     })
   }
   clickDelete(ID_PAC: number){
+    Swal.fire({
+      title: '¿Estas seguro de eliminar el registro?',
+      text: "Una vez eliminado no se podrá recuperar.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.servicio.deletePaciente(ID_PAC).subscribe(data=>{
+          this.refreshPacienteList();
+        },error => {
+          console.log(error);
+          
+        }),
+        Swal.fire(
+          'Eliminado',
+          'El registro se ha eliminado correctamente',
+          'success'
+        ) 
+      }
+    })
     console.log('Paciente con ID: '+ID_PAC+' fue eliminado correctamente');
     
-    this.servicio.deletePaciente(ID_PAC).subscribe(data=>{
-      this.refreshPacienteList();
-    },error => {
-      console.log(error);
-      
-    }) 
+    
   }
 }

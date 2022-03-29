@@ -55,13 +55,31 @@ export class MedicosComponent implements OnInit {
 
 
   clickDelete(ID_DOC: number){
-    console.log(ID_DOC);
-    this.service.deleteMedico(ID_DOC).subscribe(data=>{
-      this.refreshDocList();
-    }, error =>{
-      console.log(error); 
-       
+    Swal.fire({
+      title: '¿Estas seguro de eliminar el registro?',
+      text: "Una vez eliminado no se podrá recuperar.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result)=>{
+      if(result.isConfirmed){
+        this.service.deleteMedico(ID_DOC).subscribe(data=>{
+          this.refreshDocList();
+        }, error =>{
+          console.log(error); 
+           
+        }),
+        Swal.fire(
+          'Eliminado',
+          'El registro se ha eliminado correctamente',
+          'success'
+        )
+      }
     })
+    //console.log(ID_DOC);
+    
   }
 
 }
