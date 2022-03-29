@@ -6,7 +6,15 @@ import { IPacientes } from './models/pacientes';
 import { ISucursales } from './models/sucursales';
 import { IMedicamento } from './models/medicamentos/medicamento';
 import { IConsulta } from './models/consulta/consulta';
-import { Antpat } from './models/antpat';
+import { Antpat } from './models/antecedentes/antpat';
+import { Catant } from './models/antecedentes/catant';
+import { Antnpat } from './models/antecedentes/antnpat';
+import { Anther } from './models/antecedentes/anther';
+import { Antpsi } from './models/antecedentes/antpsi';
+import { Antobs } from './models/antecedentes/antobs';
+import { Antqui } from './models/antecedentes/antqui';
+import { Antaler } from './models/antecedentes/antaler';
+import { Tratact } from './models/antecedentes/tratact';
 
 @Injectable({
   providedIn: 'root'
@@ -104,7 +112,6 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
     return this.http.get<any>(this.APIUrl+'/Especialidad');
   }
 
-
   getAtencendeteQuirurgico():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Antqui')
   }
@@ -118,12 +125,103 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
     return this.http.get<any>(this.APIUrl+'/consulta')
   }
 
-  //METODOS PARA ANT PATOLOGICOS
+  //METODOS PARA CATALAGO DE ANTECEDENTES
+  createCatalogoAnt(ant:Catant):Observable<Catant>{
+    return this.http.post<Catant>(this.APIUrl+'/CatAnt',ant)
+  }
+  getCatalalogoAnt():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/CatAnt')
+  }
+  deleteCatalogoAnt(ID_ANT:number):Observable<any>{
+    return this.http.delete(this.APIUrl+'/CatAnt/'+ID_ANT)
+  }
+  updateCatalagoAnt(ID_ANT: number, N_ANT:any):Observable<any>{
+    return this.http.put<Catant>(this.APIUrl+'/CatAnt/'+ID_ANT, N_ANT)
+  }
+
+  //METODOS PARA ANTECEDENTES PATOLOGICOS
   createAntPat(antpat:Antpat):Observable<Antpat>{
     return this.http.post<Antpat>(this.APIUrl+'/Antpat',antpat)
   }
-  getAntecedentes():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/c_ant')
+  getAntPat(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/Antpat/'+ID_PAC)
+  }
+  updateAntPat(ID_PAC:number,AntPat:any):Observable<any>{
+    return this.http.put<Antpat>(this.APIUrl+'/AntPat/'+ID_PAC,AntPat)
   }
 
+  //METODO DE ANTECEDENTE NO PATOLOGICOS
+  createAntNPat(antnpat:Antnpat):Observable<Antnpat>{
+    return this.http.post<Antnpat>(this.APIUrl+'/AntNPat',antnpat)
+  }
+  getAntNPat(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntNPat/'+ID_PAC)
+  }
+  updateAntNPat(ID_PAC:number,AntNPat:any):Observable<any>{
+    return this.http.put<Antnpat>(this.APIUrl+'/AntNPat/'+ID_PAC,AntNPat)
+  }
+
+  //METODO DE ANTECEDENTES HEREDOFAM
+  createAntHer(anther:Anther):Observable<Anther>{
+    return this.http.post<Anther>(this.APIUrl+'/AntHeredo',anther)
+  }
+  getAntHer(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntHeredo/'+ID_PAC)
+  }
+  updateAntHer(ID_PAC:number,AntHerdo:any):Observable<any>{
+    return this.http.put<Anther>(this.APIUrl+'/AntHeredo/'+ID_PAC,AntHerdo)
+  }
+
+  //METODO DE ANTECEDENTES PSIQUIATRICOS
+  createAntPsi(antpsi:Antpsi):Observable<Antpsi>{
+    return this.http.post<Antpsi>(this.APIUrl+'/AntPsi',antpsi)
+  }
+  getAntPsi(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntPsi/'+ID_PAC)
+  }
+  updateAntPsi(ID_PAC:number,antPsi:any):Observable<any>{
+    return this.http.put<Antpsi>(this.APIUrl+'/AntPsi/'+ID_PAC,antPsi)
+  }
+
+  //METODO DE ANTECEDENTES OBSTETRICOS
+  createAntObs(antobs:Antobs):Observable<Antobs>{
+    return this.http.post<Antobs>(this.APIUrl+'/AntObs',antobs)
+  }
+  getAntObs(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntObs/'+ID_PAC)
+  }
+  updateAntObs(ID_PAC:number,antobs:any):Observable<any>{
+    return this.http.put<Antobs>(this.APIUrl+'/AntObs/'+ID_PAC, antobs)
+  }
+  //METODO DE ANTECEDENTES QUIRURGICOS
+  createAntQui(antqui:Antqui):Observable<Antqui>{
+    return this.http.post<Antqui>(this.APIUrl+'/AntQui',antqui)
+  }
+  getAntQui(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntQui/'+ID_PAC)
+  }
+  updateAntQui(ID_PAC:number,antqui:any):Observable<any>{
+    return this.http.put<Antqui>(this.APIUrl+'/AntQui/'+ID_PAC,antqui)
+  }
+  //METODO DE ANTECEDENTES ALERGICOS
+  createAntAler(antaler:Antaler):Observable<Antaler>{
+    return this.http.post<Antaler>(this.APIUrl+'/AntAler',antaler)
+  }
+  getAntAler(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/AntAlar/'+ID_PAC)
+  }
+  updateAntAler(ID_PAC:number, antaler:any):Observable<any>{
+    return this.http.put<Antaler>(this.APIUrl+'/AntAler/'+ID_PAC, antaler)
+  }
+  //METODO DE TRATAMIENTO ACTIVOS
+  createTratAct(trat:Tratact):Observable<Tratact>{
+    return this.http.post<Tratact>(this.APIUrl+'/TratActiv',trat)
+  }
+  getTratActivo(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/TratActivo/'+ID_PAC)
+  }
+  updateTratActivo(ID_PAC:number, tratact:Tratact):Observable<any>{
+    return this.http.put<Tratact>(this.APIUrl+'/TratActivo/'+ID_PAC,tratact)
+  }
 }
+
