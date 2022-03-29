@@ -37,9 +37,34 @@ export class ConsultaComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/consultas/agregarconsultas/');
+        this.router.navigateByUrl('/consultas/agregarconsultas');
       } else if (result.isDenied) {
         this.router.navigateByUrl('/consultas')
+      }
+    })
+  }
+  clickDelete(ID_CON: number){
+    Swal.fire({
+      title: '¿Estas seguro de eliminar el registro?',
+      text: "Una vez eliminado no se podrá recuperar.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.servicio.deleteConsulta(ID_CON).subscribe(data=>{
+          this.refreshConsultaList();
+        }, error =>{
+          console.log(error);
+          
+        }),
+        Swal.fire(
+          'Eliminado',
+          'El registro se ha eliminado correctamente',
+          'success'
+        )
       }
     })
   }

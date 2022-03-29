@@ -8,9 +8,9 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item [routerLink]="['/consultas/']">
+        <button mat-menu-item [routerLink]="['/consultas']">
           <mat-icon>note_add</mat-icon>
-          <span>Consultas</span>
+          <span >Consultas</span>
         </button>
         <button mat-menu-item [routerLink]="['/medicos/pacientes']">
           <mat-icon>people</mat-icon>
@@ -18,7 +18,11 @@
         </button>
         <button mat-menu-item [routerLink]="['/medicos']">
           <mat-icon>person</mat-icon>
+<<<<<<< HEAD
           <span >Médicos</span>
+=======
+          <span>Médicos</span>
+>>>>>>> 7ffd7a2e22fe62f07ea55d40415563f7e853ded3
         </button>
       </mat-menu>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -27,7 +31,7 @@
             <a class="nav-link active" [routerLink]="['/sucursales']">Sucursales</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="'/login'">Entrar</a>
+            <a class="nav-link" [routerLink]="['/login']">Entrar</a>
           </li>
         </ul>
 

@@ -23,13 +23,13 @@ export class AddConsultaComponent implements OnInit {
       fechaCon: new FormControl('',[Validators.required]),
       estatura: new FormControl('',[Validators.required]),
       peso: new FormControl('',[Validators.required]),
-      masaCorp: new FormControl('',[Validators.required]),
-      temperatura: new FormControl('',[Validators.required]),
-      frecResp: new FormControl('',[Validators.required]),
-      presArt: new FormControl('',[Validators.required]),
-      frecCar: new FormControl('',[Validators.required]),
-      grasaCorp: new FormControl('',),
-      masaMusc: new FormControl('',),
+      masaCorp: new FormControl('0'),
+      temperatura: new FormControl('0'),
+      frecResp: new FormControl('0'),
+      presArt: new FormControl('0'),
+      frecCar: new FormControl('0'),
+      grasaCorp: new FormControl('0'),
+      masaMusc: new FormControl('0'),
       satOxigeno: new FormControl('',[Validators.required]),
       motivo: new FormControl('',[Validators.required]),
       diagnostico: new FormControl('',[Validators.required]),
@@ -75,6 +75,6 @@ export class AddConsultaComponent implements OnInit {
                   error=>console.log(error))
   }
   onSaveSuccess(){
-    this.router.navigateByUrl('/pacientes')
+    this.router.navigateByUrl('/consultas')
   }
 }
