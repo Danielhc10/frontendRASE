@@ -37,9 +37,28 @@ export class ConsultaComponent implements OnInit {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        this.router.navigateByUrl('/consultas/agregarconsultas/');
+        this.router.navigateByUrl('/consultas/agregarconsultas');
       } else if (result.isDenied) {
         this.router.navigateByUrl('/consultas')
+      }
+    })
+  }
+  clickDelete(){
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
       }
     })
   }

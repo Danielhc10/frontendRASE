@@ -33,12 +33,12 @@
                             <td>{{consulta.NOMBRE_PACIENTE}}</td>
                             <td>{{consulta.NOM_SUC}}</td>
                             <td>{{consulta.NOMBRE_DOCTOR}}</td>
-                            <td>{{consulta.FECHA_CON}}</td>
+                            <td>{{consulta.FECHA_CON | date: 'dd/MM/yyyy'}}</td>
                             <td>{{consulta.MOTIVO}}</td>
                             <td>{{consulta.DIAGNOSTICO}}</td>
                             <td>
-                                <a [routerLink]="['/agregarmedico/', medicos.ID_DOC]" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
-                                <mat-icon class="far text-danger" (click)="clickDelete(medicos.ID_DOC)">delete</mat-icon>
+                                <a data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
+                                <mat-icon class="far text-danger" (click)="clickDelete()">delete</mat-icon>
                             </td>
                         </tr>
                     </tbody>

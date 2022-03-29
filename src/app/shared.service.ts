@@ -115,7 +115,7 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
     return this.http.post<IConsulta>(this.APIUrl+'/consulta', consulta)
   }
   getConsultaList():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl+'/consulta')
+    return this.http.get<any>(this.APIUrl+'/consulta');
   }
 
   //METODOS PARA ANT PATOLOGICOS
