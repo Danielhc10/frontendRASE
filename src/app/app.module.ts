@@ -40,6 +40,7 @@ import { ObstetricoComponent } from './antecedentes/obstetrico/obstetrico.compon
 import { QuirurgicoComponent } from './antecedentes/quirurgico/quirurgico.component';
 import { AlergicoComponent } from './antecedentes/alergico/alergico.component';
 import { TratamientoComponent } from './antecedentes/tratamiento/tratamiento.component';
+import { RecetasComponent } from './consultas/recetas/recetas.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { TratamientoComponent } from './antecedentes/tratamiento/tratamiento.com
     QuirurgicoComponent,
     AlergicoComponent,
     TratamientoComponent,
+    RecetasComponent
   ],
   imports: [
     BrowserModule,

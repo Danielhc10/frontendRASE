@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 //import { AntecedentesComponent } from './antecedentes/antecedentes.component';
 import { AddConsultaComponent } from './consultas/add-consulta/add-consulta.component';
 import { ConsultaComponent } from './consultas/consulta/consulta.component';
+import { RecetasComponent } from './consultas/recetas/recetas.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddMedicamentoComponent } from './medicamentos/add-medicamento/add-medicamento.component';
@@ -39,6 +40,7 @@ const routes: Routes = [
   //{path: "antecedentes", component:AntecedentesComponent},
   {path: "consultas", children:[
     { path: "agregarconsultas", component: AddConsultaComponent },
+    { path: "agregareceta", component: RecetasComponent },
     { path: "**", component: ConsultaComponent }
   ]},
   {path: "**", component: HomeComponent}

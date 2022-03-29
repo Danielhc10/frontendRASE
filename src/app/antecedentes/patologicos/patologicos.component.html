@@ -28,6 +28,21 @@
             <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
             </mat-form-field>
           </form>
+          <form [formGroup]="antPat" appearance="fill">
+            <mat-label class="p-3">Diabetes</mat-label>
+            <mat-form-field class="option p-2">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(antPat.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+          
         </div>
 
       </div>

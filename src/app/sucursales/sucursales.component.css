@@ -14,3 +14,6 @@
 .example-headers-align .mat-form-field + .mat-form-field {
   margin-left: 8px;
 }
+.mat-form-field {
+  margin-left: 8px;
+}

@@ -15,6 +15,7 @@ import { Antobs } from './models/antecedentes/antobs';
 import { Antqui } from './models/antecedentes/antqui';
 import { Antaler } from './models/antecedentes/antaler';
 import { Tratact } from './models/antecedentes/tratact';
+import { IRecetas } from './models/recetas/recetas';
 
 @Injectable({
   providedIn: 'root'
@@ -211,7 +212,7 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
     return this.http.post<Antaler>(this.APIUrl+'/AntAler',antaler)
   }
   getAntAler(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntAlar/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/AntAler/'+ID_PAC)
   }
   updateAntAler(ID_PAC:number, antaler:any):Observable<any>{
     return this.http.put<Antaler>(this.APIUrl+'/AntAler/'+ID_PAC, antaler)
@@ -225,6 +226,12 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   }
   updateTratActivo(ID_PAC:number, tratact:Tratact):Observable<any>{
     return this.http.put<Tratact>(this.APIUrl+'/TratActivo/'+ID_PAC,tratact)
+  }
+
+
+  //METODOS PARA RECETAS
+  createReceta(receta: IRecetas):Observable<IRecetas>{
+    return this.http.post<IRecetas>(this.APIUrl+'/TInsMedController',receta)
   }
 }
 

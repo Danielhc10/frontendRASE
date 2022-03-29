@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Antpat } from 'src/app/models/antpat';
+import { Antpat } from 'src/app/models/antecedentes/antpat';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({

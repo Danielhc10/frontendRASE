@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IConsulta } from 'src/app/models/consulta/consulta';
 import { SharedService } from 'src/app/shared.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-consulta',
@@ -67,14 +68,30 @@ export class AddConsultaComponent implements OnInit {
  */
   }
   addConsulta(){
-    let consulta: IConsulta = Object.assign({}, this.newConsulta.value);
-    console.table(consulta);
-
-    this.service.createConsulta(consulta)
-      .subscribe(consulta=>this.onSaveSuccess(),
-                  error=>console.log(error))
+    Swal.fire({
+      title: 'Confirmar consulta',
+      text: "¿Desea guardar el registro?",
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Guardar y agregar receta'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let consulta: IConsulta = Object.assign({}, this.newConsulta.value);
+        console.table(consulta);
+        this.service.createConsulta(consulta)
+          .subscribe(consulta=>this.onSaveSuccess(),
+                      error=>console.log(error))
+        Swal.fire(
+          'Guardado',
+          'La consulta ha sido guardada correctamente',
+          'success'
+        )
+      }
+    })
   }
   onSaveSuccess(){
-    this.router.navigateByUrl('/consultas')
+    this.router.navigateByUrl('/consultas/agregareceta')
   }
 }

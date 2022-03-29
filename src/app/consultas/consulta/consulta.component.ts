@@ -26,7 +26,7 @@ export class ConsultaComponent implements OnInit {
   addConsulta(){
     Swal.fire({
       title: '¿Deseas generar una nueva consulta?',
-      
+
       showCancelButton: true,
       confirmButtonText: 'Si',
       customClass: {
