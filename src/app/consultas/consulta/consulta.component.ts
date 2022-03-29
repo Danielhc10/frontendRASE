@@ -46,7 +46,7 @@ export class ConsultaComponent implements OnInit {
   clickDelete(ID_CON: number){
     Swal.fire({
       title: '¿Estas seguro de eliminar el registro?',
-      text: "Una vez eliminado no se podrá recuperar",
+      text: "Una vez eliminado no se podrá recuperar.",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
