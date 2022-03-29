@@ -43,20 +43,26 @@ export class ConsultaComponent implements OnInit {
       }
     })
   }
-  clickDelete(){
+  clickDelete(ID_CON: number){
     Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
+      title: '¿Estas seguro de eliminar el registro?',
+      text: "Una vez eliminado no se podrá recuperar",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
+      confirmButtonText: 'Eliminar'
     }).then((result) => {
       if (result.isConfirmed) {
+        this.servicio.deleteConsulta(ID_CON).subscribe(data=>{
+          this.refreshConsultaList();
+        }, error =>{
+          console.log(error);
+          
+        }),
         Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
+          'Eliminado',
+          'El registro se ha eliminado correctamente',
           'success'
         )
       }

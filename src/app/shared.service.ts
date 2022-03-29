@@ -117,6 +117,9 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   getConsultaList():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/consulta');
   }
+  deleteConsulta(ID_CON: number): Observable<any>{
+    return this.http.delete(this.APIUrl+'/consulta/'+ ID_CON)
+  }
 
   //METODOS PARA ANT PATOLOGICOS
   createAntPat(antpat:Antpat):Observable<Antpat>{
