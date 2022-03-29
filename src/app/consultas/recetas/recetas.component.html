@@ -1,1 +1,39 @@
-
+<div class="container-mt-5">
+    <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h2>Tratamiento</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-lg-10 offset-lg-1">
+            <div class="card">
+                <form [formGroup]="newTratamiento" appearance="fill">
+                    <p></p>
+                    <mat-form-field>
+                        <mat-label>Medicamento</mat-label>
+                        <mat-select disableRipple formControl="idMed">
+                            <mat-option *ngFor="let medicina of listMedicina" [value]="medicina.ID_MED">{{medicina.NOMB_MED}}</mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="newTratamiento.controls.idMed.hasError('required')">
+                            <strong>El médico asignado es requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Indicaciones</mat-label>
+                        <input matInput #motivo maxlength="90" 
+                                placeholder="Motivo de visita"
+                                formControlName="motivo">
+                        <mat-hint align="end">{{motivo.value.length}} / 90</mat-hint>
+                        <mat-error *ngIf="newConsulta.controls.motivo.hasError('required')">
+                            <strong>El motivo de la consulta es requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

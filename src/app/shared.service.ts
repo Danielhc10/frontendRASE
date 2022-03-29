@@ -13,7 +13,10 @@ import { Antpat } from './models/antpat';
 })
 export class SharedService {
 readonly APIUrl="https://localhost:44306/api";
+readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   constructor(private http:HttpClient) { }
+
+
 
   //METODOS PARA MEDICOS
   getMedicosList():Observable<any[]>{
@@ -110,6 +113,9 @@ readonly APIUrl="https://localhost:44306/api";
   //METODOS PARA CONSULTAS MEDICAS
   createConsulta(consulta: IConsulta):Observable<IConsulta>{
     return this.http.post<IConsulta>(this.APIUrl+'/consulta', consulta)
+  }
+  getConsultaList():Observable<any[]>{
+    return this.http.get<any>(this.APIUrl+'/consulta')
   }
 
   //METODOS PARA ANT PATOLOGICOS

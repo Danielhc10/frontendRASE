@@ -124,19 +124,19 @@ export class AgregarMedicoComponent implements OnInit {
   addMedico(){
     let medico: IMedicos = this.newMedic.value;
     console.table(medico);
-    if (this.ID_DOC == undefined) {
-      //Agregamos un nuevo medico
-      this.service.createMedico(medico)
-          .subscribe(medico => this.onSaveSuccess(),
-            
-           error => console.log(error))        
-    } else {
+    if (this.ID_DOC != 0) {
       //Actualizamos el medico
       medico.idDoc = this.ID_DOC;
       this.service.updateMedico(this.ID_DOC, medico).subscribe(data=>{
         console.log(data);
         this.onSaveSuccess();
       })
+    } else {
+      //Agregamos un nuevo medico
+      this.service.createMedico(medico)
+          .subscribe(medico => this.onSaveSuccess(),
+            
+           error => console.log(error))        
     }
     
   }
