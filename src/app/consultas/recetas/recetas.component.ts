@@ -12,6 +12,7 @@ export class RecetasComponent implements OnInit {
 
   newTratamiento:FormGroup;
   listMedicina: any=[];
+  listPaciente: any=[];
 
   constructor(private servicio: SharedService, private router: Router) {
     this.newTratamiento = new FormGroup({
@@ -20,14 +21,19 @@ export class RecetasComponent implements OnInit {
       idMed: new FormControl('',[Validators.required]),
       indicaciones: new FormControl('',[Validators.required]),
       frecuencia: new FormControl('',[Validators.required]),
-      duracion: new FormControl('',[Validators.required])
-    })
+      duracion: new FormControl('',[Validators.required]),
+      notas: new FormControl('',[Validators.required]),
+    }) 
    }
 
   
   ngOnInit(): void {
     this.servicio.getMedicamentos().subscribe(data=>{
       this.listMedicina=data;
+    }),
+    this.servicio.getPacientesList().subscribe(pac=>{
+      this.listPaciente=pac;
     })
+    
   }
 }

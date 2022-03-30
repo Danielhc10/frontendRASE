@@ -37,7 +37,7 @@
                             <td>{{medicos.REC_DIS}}</td>
                             <td>{{medicos.CED_P}}</td>
                             <td>{{medicos.TEL_DOC}}</td>
-                            <td>
+                            <td> 
                                 <a [routerLink]="['/medicos/editarmedico/', medicos.ID_DOC]" data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
                                 <mat-icon class="far text-danger" (click)="clickDelete(medicos.ID_DOC)">delete</mat-icon>
                             </td>

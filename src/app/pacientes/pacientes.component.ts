@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { IPacientes } from '../models/pacientes';
 import { SharedService } from '../shared.service';
 
@@ -69,13 +70,26 @@ export class PacientesComponent implements OnInit {
     console.table(paciente);
     
     if (this.ID_PAC != 0) {
+      
+      Swal.fire(
+        '¡Registro actualizado!',
+        'El paciente ha sido actualizado correctamente',
+        'success'
+      )
       //Actualizamos al paciente
       paciente.idPac = this.ID_PAC;
       this.servicio.updatePaciente(this.ID_PAC, paciente).subscribe(data=>{
         this.onSaveSuccess();
       })
+
      
     } else {
+
+      Swal.fire(
+        '¡Registro agregado!',
+        'El paciente ha sido agregado correctamente',
+        'success'
+      )
       this.servicio.createPaciente(paciente)
       .subscribe(/* paciente => this.onSaveSuccess(), */
                   error => console.log(error)) 

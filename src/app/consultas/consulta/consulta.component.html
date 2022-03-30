@@ -10,6 +10,7 @@
                 <div fxLayout="row" fxLayoutAlign="end center">
                     <button (click)="addConsulta()"mat-raised-button color="primary">Nueva consulta</button>
                 </div>
+                
             </div>
         </div>
     </div>
@@ -29,7 +30,7 @@
                         </tr>
                       </thead>
                     <tbody>
-                        <tr *ngFor="let consulta of listConsultas">
+                        <tr *ngFor="let consulta of listConsultas ">
                             <td>{{consulta.NOMBRE_PACIENTE}}</td>
                             <td>{{consulta.NOM_SUC}}</td>
                             <td>{{consulta.NOMBRE_DOCTOR}}</td>
@@ -37,12 +38,18 @@
                             <td>{{consulta.MOTIVO}}</td>
                             <td>{{consulta.DIAGNOSTICO}}</td>
                             <td>
-                                <a data-backdrop="static" data-keybord="false"><mat-icon class="far text-info">edit</mat-icon></a>
-                                <mat-icon class="far text-danger" (click)="clickDelete(consulta.ID_CON)">delete</mat-icon>
+                                <a data-backdrop="static" data-keybord="false"><mat-icon matTooltip="Editar consulta"
+                                    class="far text-info">edit</mat-icon></a>
+                                <mat-icon matTooltip="Eliminar consulta"
+                                class="far text-danger" (click)="clickDelete(consulta.ID_CON)">delete</mat-icon>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <!--<mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                    showFirstLastButtons 
+                    aria-label="Select page of periodic elements">
+                </mat-paginator>-->
             </div>
         </div>
     </div>

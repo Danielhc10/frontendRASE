@@ -4,6 +4,7 @@ import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/
 import { ɵɵtsModuleIndicatorApiExtractorWorkaround } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from 'src/app/shared.service';
+import Swal from 'sweetalert2';
 
 import { IMedicos } from '../../models/medicos'
 
@@ -126,13 +127,26 @@ export class AgregarMedicoComponent implements OnInit {
     console.table(medico);
     if (this.ID_DOC != 0) {
       //Actualizamos el medico
+
+      Swal.fire(
+        '¡Registro actualizado!',
+        'El médico ha sido actualizado correctamente',
+        'success'
+      )
+
       medico.idDoc = this.ID_DOC;
       this.service.updateMedico(this.ID_DOC, medico).subscribe(data=>{
         console.log(data);
         this.onSaveSuccess();
       })
     } else {
+
       //Agregamos un nuevo medico
+      Swal.fire(
+        '¡Registro agregado!',
+        'El médico ha sido agregado correctamente',
+        'success'
+      )
       this.service.createMedico(medico)
           .subscribe(medico => this.onSaveSuccess(),
             

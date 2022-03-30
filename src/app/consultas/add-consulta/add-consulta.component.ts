@@ -81,8 +81,9 @@ export class AddConsultaComponent implements OnInit {
         let consulta: IConsulta = Object.assign({}, this.newConsulta.value);
         console.table(consulta);
         this.service.createConsulta(consulta)
-          .subscribe(consulta=>this.onSaveSuccess(),
+          .subscribe(/* consulta=>this.onSaveSuccess(), */
                       error=>console.log(error))
+        
         Swal.fire(
           'Guardado',
           'La consulta ha sido guardada correctamente',
@@ -91,7 +92,7 @@ export class AddConsultaComponent implements OnInit {
       }
     })
   }
-  onSaveSuccess(){
-    this.router.navigateByUrl('/consultas/agregareceta')
-  }
+  /* onSaveSuccess(){
+    this.router.navigateByUrl('/consultas/agregareceta/')
+  } */
 }

@@ -14,6 +14,18 @@
                 <form [formGroup]="newTratamiento" appearance="fill">
                     <p></p>
                     <mat-form-field>
+                        <mat-label>Paciente</mat-label>
+                        <mat-select>
+                            <mat-option *ngFor="let paciente of listPaciente" [values]="paciente.ID_PAC">
+                                {{paciente.NOM_PAC + ' ' + paciente.AP_PAT_PAC + ' ' + paciente.AP_MAT_PAC}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="newTratamiento.controls.idPac.hasError('required')">
+                            <strong>El paciente de la consulta es requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field>
                         <mat-label>Medicamento</mat-label>
                         <mat-select>
                             <mat-option *ngFor="let medicamento of listMedicina" [values]="medicamento.ID_MED">
@@ -24,14 +36,48 @@
                             <strong>El médico asignado es requerido</strong>
                         </mat-error>
                     </mat-form-field>
+                    
                     <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Indicaciones</mat-label>
-                        <input matInput #indicaciones maxlength="90" 
+                        <input matInput #indicaciones maxlength="30" 
                                 placeholder="Indiciaciones"
                                 formControlName="indicaciones">
-                        <mat-hint align="end">{{indicaciones.value.length}} / 90</mat-hint>
+                        <mat-hint align="end">{{indicaciones.value.length}} / 30</mat-hint>
                         <mat-error *ngIf="newTratamiento.controls.indicaciones.hasError('required')">
-                            <strong>El motivo de la consulta es requerido</strong>
+                            <strong>Indicaciones requeridas</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Frecuencia</mat-label>
+                        <input matInput #frecuencia maxlength="30" 
+                                placeholder="En lapsos de ..."
+                                formControlName="frecuencia">
+                        <mat-hint align="end">{{frecuencia.value.length}} / 30</mat-hint>
+                        <mat-error *ngIf="newTratamiento.controls.frecuencia.hasError('required')">
+                            <strong>Frecuencia del medicamento requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Duración</mat-label>
+                        <input matInput #duracion maxlength="30" 
+                                placeholder="Durante"
+                                formControlName="duracion">
+                        <mat-hint align="end">{{duracion.value.length}} / 30</mat-hint>
+                        <mat-error *ngIf="newTratamiento.controls.duracion.hasError('required')">
+                            <strong>Frecuencia del medicamento requerido</strong>
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Notas adicionales</mat-label>
+                        <input matInput #notas maxlength="30" 
+                                placeholder="Notas adicionales"
+                                formControlName="notas">
+                        <mat-hint align="end">{{notas.value.length}} / 30</mat-hint>
+                        <mat-error *ngIf="newTratamiento.controls.notas.hasError('required')">
+                            <strong>Frecuencia del medicamento requerido</strong>
                         </mat-error>
                     </mat-form-field>
                 </form>
