@@ -112,11 +112,11 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   getEspecialidad():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Especialidad');
   }
-
+  //----------------------------------------------------------------------------
   getAtencendeteQuirurgico():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/Antqui')
   }
-
+  //----------------------------------------------------------------------------
 
   //METODOS PARA CONSULTAS MEDICAS
   createConsulta(consulta: IConsulta):Observable<IConsulta>{
@@ -129,7 +129,8 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
     return this.http.delete(this.APIUrl+'/consulta/'+ ID_CON)
   }
 
-  //METODOS PARA CATALAGO DE ANTECEDENTES
+  //----------------------------------------------------------------------------
+  //METODOS PARA CATALAGO DE ANTECEDENTES ***
   createCatalogoAnt(ant:Catant):Observable<Catant>{
     return this.http.post<Catant>(this.APIUrl+'/CatAnt',ant)
   }
@@ -142,6 +143,7 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   updateCatalagoAnt(ID_ANT: number, N_ANT:any):Observable<any>{
     return this.http.put<Catant>(this.APIUrl+'/CatAnt/'+ID_ANT, N_ANT)
   }
+  //----------------------------------------------------------------------------
 
   //METODOS PARA ANTECEDENTES PATOLOGICOS
   createAntPat(antpat:Antpat):Observable<Antpat>{
@@ -156,68 +158,69 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
 
   //METODO DE ANTECEDENTE NO PATOLOGICOS
   createAntNPat(antnpat:Antnpat):Observable<Antnpat>{
-    return this.http.post<Antnpat>(this.APIUrl+'/AntNPat',antnpat)
+    return this.http.post<Antnpat>(this.APIUrl+'/Antnopat',antnpat)
   }
   getAntNPat(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntNPat/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Antnopat/'+ID_PAC)
   }
   updateAntNPat(ID_PAC:number,AntNPat:any):Observable<any>{
-    return this.http.put<Antnpat>(this.APIUrl+'/AntNPat/'+ID_PAC,AntNPat)
+    return this.http.put<Antnpat>(this.APIUrl+'/Antnopat/'+ID_PAC,AntNPat)
   }
 
   //METODO DE ANTECEDENTES HEREDOFAM
   createAntHer(anther:Anther):Observable<Anther>{
-    return this.http.post<Anther>(this.APIUrl+'/AntHeredo',anther)
+    return this.http.post<Anther>(this.APIUrl+'/Anther',anther)
   }
   getAntHer(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntHeredo/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Anther/'+ID_PAC)
   }
   updateAntHer(ID_PAC:number,AntHerdo:any):Observable<any>{
-    return this.http.put<Anther>(this.APIUrl+'/AntHeredo/'+ID_PAC,AntHerdo)
+    return this.http.put<Anther>(this.APIUrl+'/Anther/'+ID_PAC,AntHerdo)
   }
 
   //METODO DE ANTECEDENTES PSIQUIATRICOS
   createAntPsi(antpsi:Antpsi):Observable<Antpsi>{
-    return this.http.post<Antpsi>(this.APIUrl+'/AntPsi',antpsi)
+    return this.http.post<Antpsi>(this.APIUrl+'/Antpsi',antpsi)
   }
   getAntPsi(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntPsi/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Antpsi/'+ID_PAC)
   }
   updateAntPsi(ID_PAC:number,antPsi:any):Observable<any>{
-    return this.http.put<Antpsi>(this.APIUrl+'/AntPsi/'+ID_PAC,antPsi)
+    return this.http.put<Antpsi>(this.APIUrl+'/Antpsi/'+ID_PAC,antPsi)
   }
 
   //METODO DE ANTECEDENTES OBSTETRICOS
   createAntObs(antobs:Antobs):Observable<Antobs>{
-    return this.http.post<Antobs>(this.APIUrl+'/AntObs',antobs)
+    return this.http.post<Antobs>(this.APIUrl+'/Antob',antobs)
   }
   getAntObs(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntObs/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Antob/'+ID_PAC)
   }
   updateAntObs(ID_PAC:number,antobs:any):Observable<any>{
-    return this.http.put<Antobs>(this.APIUrl+'/AntObs/'+ID_PAC, antobs)
+    return this.http.put<Antobs>(this.APIUrl+'/Antob/'+ID_PAC, antobs)
   }
   //METODO DE ANTECEDENTES QUIRURGICOS
   createAntQui(antqui:Antqui):Observable<Antqui>{
-    return this.http.post<Antqui>(this.APIUrl+'/AntQui',antqui)
+    return this.http.post<Antqui>(this.APIUrl+'/Antqui',antqui)
   }
   getAntQui(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntQui/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Antqui/'+ID_PAC)
   }
   updateAntQui(ID_PAC:number,antqui:any):Observable<any>{
-    return this.http.put<Antqui>(this.APIUrl+'/AntQui/'+ID_PAC,antqui)
+    return this.http.put<Antqui>(this.APIUrl+'/Antqui/'+ID_PAC,antqui)
   }
   //METODO DE ANTECEDENTES ALERGICOS
   createAntAler(antaler:Antaler):Observable<Antaler>{
-    return this.http.post<Antaler>(this.APIUrl+'/AntAler',antaler)
+    return this.http.post<Antaler>(this.APIUrl+'/Antaler',antaler)
   }
   getAntAler(ID_PAC:number){
-    return this.http.get<any>(this.APIUrl+'/AntAler/'+ID_PAC)
+    return this.http.get<any>(this.APIUrl+'/Antaler/'+ID_PAC)
   }
   updateAntAler(ID_PAC:number, antaler:any):Observable<any>{
-    return this.http.put<Antaler>(this.APIUrl+'/AntAler/'+ID_PAC, antaler)
+    return this.http.put<Antaler>(this.APIUrl+'/Antaler/'+ID_PAC, antaler)
   }
-  //METODO DE TRATAMIENTO ACTIVOS
+  //----------------------------------------------------------------------------
+  //METODO DE TRATAMIENTO ACTIVOS ****
   createTratAct(trat:Tratact):Observable<Tratact>{
     return this.http.post<Tratact>(this.APIUrl+'/TratActiv',trat)
   }
@@ -227,11 +230,24 @@ readonly APItercero= "https://api.kabik.mx:443/WebService/soap.php/"
   updateTratActivo(ID_PAC:number, tratact:Tratact):Observable<any>{
     return this.http.put<Tratact>(this.APIUrl+'/TratActivo/'+ID_PAC,tratact)
   }
-
+  //-----------------------------------------------------------------------------
 
   //METODOS PARA RECETAS
   createReceta(receta: IRecetas):Observable<IRecetas>{
     return this.http.post<IRecetas>(this.APIUrl+'/TInsMedController',receta)
   }
+  getRecetaList(ID_PAC:number){
+    return this.http.get<any>(this.APIUrl+'/TInsMedController/'+ID_PAC)
+  }
+  getReceta(ID_CON:number){
+    return this.http.get<any>(this.APIUrl+'/TInsMedController/'+ID_CON)
+  }
+  deleteReceta(ID_CON: number):Observable<any>{
+    return this.http.delete(this.APIUrl+'/TInsMedController/'+ID_CON)
+  }
+  updateReceta(ID_CON:number, receta: IRecetas):Observable<any>{
+    return this.http.put<Tratact>(this.APIUrl+'/TInsMedController/'+ID_CON,receta)
+  }
+
 }
 
