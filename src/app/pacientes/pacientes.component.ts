@@ -14,7 +14,7 @@ import { SharedService } from '../shared.service';
 export class PacientesComponent implements OnInit {
 
   toppings = new FormControl();
-  
+
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   newPaciente: FormGroup;
 
@@ -39,8 +39,8 @@ export class PacientesComponent implements OnInit {
       archPac: new FormControl('',[Validators.required]),
     });
     this.ID_PAC =+this.aRoute.snapshot.paramMap.get('ID_PAC')
-   }
-  
+  }
+
   ngOnInit(): void {
     if(this.ID_PAC!=0){
       this.accion="EDITAR";
@@ -68,9 +68,9 @@ export class PacientesComponent implements OnInit {
   addPaciente(){
     let paciente: IPacientes = Object.assign({}, this.newPaciente.value);
     console.table(paciente);
-    
+
     if (this.ID_PAC != 0) {
-      
+
       Swal.fire(
         '¡Registro actualizado!',
         'El paciente ha sido actualizado correctamente',
@@ -82,7 +82,6 @@ export class PacientesComponent implements OnInit {
         this.onSaveSuccess();
       })
 
-     
     } else {
 
       Swal.fire(
@@ -92,11 +91,11 @@ export class PacientesComponent implements OnInit {
       )
       this.servicio.createPaciente(paciente)
       .subscribe(/* paciente => this.onSaveSuccess(), */
-                  error => console.log(error)) 
+                  error => console.log(error))
     }
 
   }
-  
+
   onSaveSuccess(){
     this.router.navigate(['/medicos/pacientes'])
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-heredofam',
@@ -14,42 +16,44 @@ export class HeredofamComponent implements OnInit {
   EnfT:FormGroup
   Otros:FormGroup;
 
+  accion="AGREGAR"
   ID_PAC=0;
-  antecedentes:any[];
 
-  constructor() {
+  constructor(private servicio: SharedService,
+    private router: Router,
+    private aRoute: ActivatedRoute) {
     this.Dia=new FormGroup({
-      idAnt:new FormControl('1002'),
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)])
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regHer: new FormControl('',[Validators.required]),
+      anot:new FormControl('')
     });
     this.Car=new FormGroup({
-      idAnt:new FormControl('1021') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regHer: new FormControl('',[Validators.required]),
+      anot:new FormControl('') ,
     });
     this.Hip=new FormGroup({
-      idAnt:new FormControl('1004') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regHer: new FormControl('',[Validators.required]),
+      anot:new FormControl('')
     });
     this.EnfT=new FormGroup({
-      idAnt:new FormControl('1003') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regHer: new FormControl('',[Validators.required]),
+      anot:new FormControl('')
     });
     this.Otros=new FormGroup({
-      idAnt:new FormControl('1014') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regHer: new FormControl('',[Validators.required]),
+      anot:new FormControl('')
     });
-    this.antecedentes=[
-      {met:'Dia',nom:'Diabetes'},
-      {met:'Car',nom:'Cardiopatías'},
-      {met:'Hip',nom:'Hipertensión arterial'},
-      {met:'EnfT',nom:'Enfermedades Tiroideas'},
-      {met:'Otros',nom:'Otros'}
-    ];
+
+    this.ID_PAC=+this.aRoute.snapshot.paramMap.get('ID_PAC');
   }
 
   ngOnInit(): void {

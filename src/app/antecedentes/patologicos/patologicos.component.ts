@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Antpat } from 'src/app/models/antecedentes/antpat';
 import { SharedService } from 'src/app/shared.service';
 
@@ -10,36 +10,128 @@ import { SharedService } from 'src/app/shared.service';
   styleUrls: ['./patologicos.component.css']
 })
 export class PatologicosComponent implements OnInit {
-
-  Hosp:FormGroup;
-  Cirugias:FormGroup;
-  Diabetes:FormGroup;
-  Tiroideas:FormGroup;
-  Hipertension:FormGroup;
-  Cardio:FormGroup;
-  Trauma:FormGroup;
-  Cancer:FormGroup;
-  Tuber:FormGroup;
-  Trans:FormGroup;
-  PResp:FormGroup;
-  PGastro:FormGroup;
-  ETS:FormGroup;
-  Vista:FormGroup;
-  Otros:FormGroup;
-  ID_PAC=0;
-  antecedentes:any[];
-
   antPat:FormGroup;
 
-  constructor(private servicios:SharedService,
-    private router:Router) {
-    this.antPat=new FormGroup({
-      idPac: new FormControl(''),
-      idAnt: new FormControl(''),
-      regPat: new FormControl(''),
-      anPat: new FormControl('')
-    })
+  Hos:FormGroup;
+  Cir:FormGroup;
+  Dia:FormGroup;
+  Tir:FormGroup;
+  Hip:FormGroup;
+  Car:FormGroup;
+  Trau:FormGroup;
+  Can:FormGroup;
+  Tub:FormGroup;
+  Tran:FormGroup;
+  Res:FormGroup;
+  Gas:FormGroup;
+  Ets:FormGroup;
+  Vis:FormGroup;
+  Otr:FormGroup;
 
+  accion="AGREGAR";
+  ID_PAC=0;
+  
+  constructor(private servicios:SharedService,
+    private router:Router,
+    private aRoute: ActivatedRoute) {
+    this.antPat= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Hos= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Cir= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+
+    this.Dia= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Tir= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Hip= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Car= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Trau= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Can= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Tub= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Tran= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Res= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Gas= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Ets= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Vis= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.Otr= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPat: new FormControl('',[Validators.required]),
+      anPat: new FormControl('')
+    });
+    this.ID_PAC=+this.aRoute.snapshot.paramMap.get('ID_PAC');
   }
 
   ngOnInit(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Form, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-obstetrico',
@@ -14,22 +16,58 @@ export class ObstetricoComponent implements OnInit {
   numembaries:FormGroup;
   numhijo:FormGroup;
   anti:FormGroup;
-  meno:FormGroup
+  meno:FormGroup;
 
+  accion="AGREGAR";
   ID_PAC=0;
-  antecedentes:any[];
 
-  constructor() {
-    
-    this.antecedentes=[
-      {met:'pperiodo',nom:'Edad del primer periodo'},
-      {met:'uperiodo',nom:'Último periodo'},
-      {met:'numemba',nom:'Número de embarazos'},
-      {met:'numembaries',nom:'Número de embarazos de riesgo'},
-      {met:'numhijo',nom:'Número de hijos'},
-      {met:'anti',nom:'Uso de anticonceptivos'},
-      {met:'meno',nom:'Edad de menopausia'}
-    ];
+  constructor(private servicio: SharedService,
+    private router: Router,
+    private aRoute: ActivatedRoute) {
+
+    this.pperiodo= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.uperiodo= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.numemba= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.numembaries= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.numhijo= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.anti= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.meno= new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regObs: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
+    });
+    this.ID_PAC=+this.aRoute.snapshot.paramMap.get('ID_PAC');
   }
 
   ngOnInit(): void {

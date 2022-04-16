@@ -8,12 +8,119 @@
       </div>
     </div>
   </div>
-  <div class="row mt-1">
+  <div class="row">
     <div class="col-lg-8 offset-lg-2">
       <div class="card">
-        <form>
 
-        </form>
+          <form [formGroup]="pperiodo" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1026" >Edad del primer periodo</mat-label>
+            <mat-form-field class="option p-2"appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(pperiodo.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="uperiodo" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Último periodo</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(uperiodo.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="numemba" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Número de embarazos</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(numemba.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="numembaries" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Número de embarazos de riesgo</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(numembaries.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="numhijo" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Número de hijos</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(numhijo.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="anti" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Uso de anticonceptivos</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(anti.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="meno" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1023" >Edad de menopausia</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regObs" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(meno.controls.regObs.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anot">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <div class="btn">
+            <button  mat-stroked-button color="primary" appearance="fill">Guardar</button>
+          </div>
+
       </div>
     </div>
   </div>

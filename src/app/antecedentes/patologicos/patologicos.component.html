@@ -13,38 +13,237 @@
 
       <div class="card" >
 
-        <div>
-          <form [formGroup]="antPat" appearance="fill">
-            <mat-label class="p-3">Diabetes</mat-label>
-            <mat-form-field class="option p-2">
+
+          <form [formGroup]="Hos" appearance="fill">
+
+            <mat-label class="p-3" formControlName ="idAnt" value = "1000">Hospitalizaciones previas</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
               <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
                 <mat-option value="0">No</mat-option>
                 <mat-option value="1">Si</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(antPat.controls.regPat.value==1)">
+            <mat-form-field class="example-full-width p-1" *ngIf="(Hos.controls.regPat.value==1)" appearance="fill">
               <mat-label>Notas</mat-label>
             <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
             <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
             </mat-form-field>
+
           </form>
-          <form [formGroup]="antPat" appearance="fill">
-            <mat-label class="p-3">Diabetes</mat-label>
-            <mat-form-field class="option p-2">
+
+          <form [formGroup]="Cir" appearance="fill">
+            <mat-label class="p-3" formControlName ="idAnt" value = "1001">Cirugías previas</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
               <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
                 <mat-option value="0">No</mat-option>
                 <mat-option value="1">Si</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(antPat.controls.regPat.value==1)">
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Cir.controls.regPat.value==1)">
               <mat-label>Notas</mat-label>
             <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
             <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
             </mat-form-field>
           </form>
 
+          <form [formGroup]="Dia" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1002">Diabetes</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Dia.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Tir" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1003" >Enfermedades tiroideas</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Tir.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Hip" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1004">Hipertensión arterial</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Hip.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Car" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1005">Cardiopatitis</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Car.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Trau" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1006">Traumatismos</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Trau.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Can" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1007" >Cáncer</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Can.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Tub" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1008">Tuberculosis</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Tub.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Tran" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1009">Transfusiones</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Tran.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Res" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1010">Patologías respiratorias</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Res.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Gas" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1011">Patologías gastrointestinales</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Gas.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Ets" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1012" >Enfermedades de transmisión sexual</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Ets.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Vis" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1013" >Problemas de la vista</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Vis.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+          <form [formGroup]="Otr" appearance="fill">
+            <mat-label class="p-3" formControlName="idAnt" value = "1014" >Otros</mat-label>
+            <mat-form-field class="option p-2" appearance="fill">
+              <mat-select disableRipple formControlName="regPat" placeholder="¿Tiene este antecedente?">
+                <mat-option value="0">No</mat-option>
+                <mat-option value="1">Si</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="example-full-width p-1" appearance="fill" *ngIf="(Otr.controls.regPat.value==1)">
+              <mat-label>Notas</mat-label>
+            <input matInput #notas maxlength="60" placeholder="Notas de los antecedentes" formControlName="anPat">
+            <mat-hint align="end">{{notas.value.length}} / 60</mat-hint>
+            </mat-form-field>
+          </form>
+
+        <div class="btn">
+          <button  mat-stroked-button color="primary" appearance="fill">Guardar</button>
         </div>
-
       </div>
     </div>
   </div>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-psiquiatrico',
@@ -13,36 +15,37 @@ export class PsiquiatricoComponent implements OnInit {
   Tra:FormGroup;
   Med:FormGroup;
 
+  accion="AGREGAR"
   ID_PAC=0;
-  antecedentes:any[];
 
-  constructor() {
+  constructor(private servicios:SharedService,
+    private router:Router,
+    private aRoute:ActivatedRoute) {
     this.His=new FormGroup({
-      idAnt:new FormControl('1022'),
-      regpat:new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)])
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPsi: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
     this.Con=new FormGroup({
-      idAnt:new FormControl('1023'),
-      regpat:new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)])
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPsi: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
     this.Tra=new FormGroup({
-      idAnt:new FormControl('1024'),
-      regpat:new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)])
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPsi: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
     this.Med=new FormGroup({
-      idAnt:new FormControl('1025'),
-      regpat:new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)])
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regPsi: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
-    this.antecedentes=[
-      {met:'His',nom:'Historial en su familia'},
-      {met:'Con',nom:'Conciencia de enfermedad'},
-      {met:'Tra',nom:'Tratamiento'},
-      {met:'Med',nom:'Medicamentos'}
-    ]
+    this.ID_PAC=+this.aRoute.snapshot.paramMap.get('ID_PAC');
   }
 
   ngOnInit(): void {

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-no-patologicos',
@@ -8,63 +10,63 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class NoPatologicosComponent implements OnInit {
 
-  AFis:FormGroup;
+  Fis:FormGroup;
   Tab: FormGroup;
   Alc:FormGroup;
   Caf:FormGroup;
-  Drog:FormGroup;
+  Dro:FormGroup;
   Vac:FormGroup;
-  Otros:FormGroup;
+  Otr:FormGroup;
 
+  accion="AGREGAR";
   ID_PAC=0;
-  antecedentes:any[];
 
-  constructor() {
-    this.AFis=new FormGroup({
-      idAnt:new FormControl('1015'),
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+  constructor(private servicio: SharedService,
+    private router: Router,
+    private aRoute: ActivatedRoute) {
+    this.Fis=new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('',[Validators.required])
     });
     this.Tab=new FormGroup({
-      idAnt:new FormControl('1016') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('',[Validators.required])
     });
     this.Alc=new FormGroup({
-      idAnt:new FormControl('1017') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('',[Validators.required])
     });
     this.Caf=new FormGroup({
-      idAnt:new FormControl('1018') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
-    this.Drog=new FormGroup({
-      idAnt:new FormControl('1019') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+    this.Dro=new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
     this.Vac=new FormGroup({
-      idAnt:new FormControl('1020') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
-    this.Otros=new FormGroup({
-      idAnt:new FormControl('1014') ,
-      regpat: new FormControl('',[Validators.required]),
-      anpat:new FormControl('',[Validators.maxLength(60)]) ,
+    this.Otr=new FormGroup({
+      idPac: new FormControl('',[Validators.required]),
+      idAnt: new FormControl('',[Validators.required]),
+      regNPat: new FormControl('',[Validators.required]),
+      anot: new FormControl('')
     });
-    this.antecedentes=[
-      {met:'AFis',nom:'Actividad física'},
-      {met:'Tab',nom:'Tabaquismo'},
-      {met:'Alc',nom:'Alcoholismo'},
-      {met:'Caf',nom:'Cafeína'},
-      {met:'Drog',nom:'Uso de otras sustancias (drogas)'},
-      {met:'Vac',nom:'Vacuna o Inmunización reciente'},
-      {met:'Otros',nom:'Otros'}
-
-    ];
+    this.ID_PAC=+this.aRoute.snapshot.paramMap.get('ID_PAC');
   }
 
   ngOnInit(): void {
